@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 
 namespace MLRecommendAPI.Controllers
 {
@@ -17,12 +18,27 @@ namespace MLRecommendAPI.Controllers
 
     public class ValuesController : ApiController
     {
-        //Azure ML API の URL を入力してください。
-        private const string apiUrl = "url";
+        #region APIRUL : Azure ML API の URL を入力してください。
+        //方法1 or 方法2 のいずれかをご使用ください。使用しないほうはコメントアウトしてください。
 
-        // Azure ML API の API キーを入力してください。
-        private const string apiKey = "apikey"; 
-        
+        //方法1 : Visual Studio で編集する場合には下記へ直接 apiUrl を書き込んでください。
+        //private string apiUrl = "url";
+
+        //方法2 : Azure Web Apps の [構成]-[アプリケーション設定]から設定する場合には、下記コードを使用します。
+        private string apiUrl = WebConfigurationManager.AppSettings["apiUrl"];
+
+        #endregion
+
+        #region APIKEY : Azure ML API の API キーを入力してください。
+        //方法1 or 方法2 のいずれかをご使用ください。使用しないほうはコメントアウトしてください。
+
+        //方法1 : Visual Studio で編集する場合には下記へ直接 apikey を書き込んでください。
+        //private string apiKey = "apikey";
+
+        //方法2 : Azure Web Apps の [構成]-[アプリケーション設定]から設定する場合には、下記コードを使用します。
+        private string apiKey =  WebConfigurationManager.AppSettings["apiKey"];
+
+        #endregion
         // GET api/values
         public IEnumerable<string> Get()
         {
