@@ -1,0 +1,48 @@
+﻿<div class="jumbotron">
+    <h1>Azure ML 推薦システムデモ</h1>
+    <p class="lead">Webサイトから Azure Machine Learning (ML)で公開したAPIを呼び出すデモ</p>
+    <p class="lead">画面下側のテキストボックスに数字(ユーザーID)を入れて、[ML API 呼び出し]ボタンをクリックしてください。ユーザーに応じて映画が3つ推薦されます。</p>
+    <p><a href="https://github.com/NT-D/AzureML_Recommend_Sample" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+        is an ideal platform for building RESTful applications on the .NET Framework.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+<div class="input-group">
+    <input id="input_textbox" type="text" class="form-control" />
+    <a id="apicall_btn" class="btn btn-default">ML API 呼び出し</a>
+</div>
+<ul id="content_ul"></ul>
+
+<script type="text/javascript">
+    $(function () {
+        $('#apicall_btn').click(function () {
+            $('#content_ul').empty();
+            var inputvalue = $('#input_textbox').val();
+            $.get("/api/values/" + inputvalue, function (data) {
+                var obj = jQuery.parseJSON(data);
+                for (i = 1; i < obj.Results.output1.value.Values[0].length; i++)
+                {
+                    console.log(obj.Results.output1.value.Values[0][i]);
+                    $('#content_ul').append("<li>" + obj.Results.output1.value.Values[0][i] + "</li>");
+                }
+            })
+        });
+    });
+</script>

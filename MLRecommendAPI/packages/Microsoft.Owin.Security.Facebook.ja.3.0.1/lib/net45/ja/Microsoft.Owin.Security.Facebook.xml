@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Security.Facebook</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookApplyRedirectContext">
+      <summary>Facebook ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に渡されるコンテキスト</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookApplyRedirectContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions,Microsoft.Owin.Security.AuthenticationProperties,System.String)">
+      <summary>新しいコンテキスト オブジェクトを作成します。</summary>
+      <param name="context">OWIN 要求コンテキスト</param>
+      <param name="options">Facebook ミドルウェアのオプション</param>
+      <param name="properties">チャレンジの認証プロパティ</param>
+      <param name="redirectUri">初期リダイレクト URI</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookApplyRedirectContext.Properties">
+      <summary>チャレンジの認証プロパティを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookApplyRedirectContext.RedirectUri">
+      <summary>リダイレクト操作に使用される URI を取得します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext">
+      <summary>ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.#ctor(Microsoft.Owin.IOwinContext,Newtonsoft.Json.Linq.JObject,System.String,System.String)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext" /> を初期化します</summary>
+      <param name="context">OWIN 環境</param>
+      <param name="user">JSON 形式でシリアル化されたユーザー</param>
+      <param name="accessToken">Facebook アクセス トークン</param>
+      <param name="expires">有効期限までの秒数</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.AccessToken">
+      <summary>Facebook のアクセス トークンを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Email">
+      <summary>Facebook の電子メールを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.ExpiresIn">
+      <summary>Facebook アクセス トークンの有効期限を取得する</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Id">
+      <summary>Facebook のユーザー ID を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Identity">
+      <summary>ユーザーを表す <see cref="T:System.Security.Claims.ClaimsIdentity" /> を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Link">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext" /> へのリンクを取得または設定します。</summary>
+      <returns>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext" /> へのリンク。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Name">
+      <summary>ユーザーの名前を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.Properties">
+      <summary>共通の認証プロパティのプロパティ バッグを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.User">
+      <summary>JSON 形式でシリアル化されたユーザーを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext.UserName">
+      <summary>Facebook のユーザー名を取得します</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware">
+      <summary>Facebook を使用してユーザーを認証するための OWIN ミドルウェア</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Owin.IAppBuilder,Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware" /> を初期化します</summary>
+      <param name="next">OWIN パイプライン内で次に呼び出すミドルウェア</param>
+      <param name="app">OWIN アプリケーション</param>
+      <param name="options">ミドルウェアの構成オプション</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware.CreateHandler">
+      <summary>認証関連要求を処理するための <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" /> オブジェクトを提供します。</summary>
+      <returns>コンストラクターに指定された <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions" /> で構成された <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware" /> の構成オプション</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.#ctor">
+      <summary>新しい <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions" /> を初期化します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.AppId">
+      <summary>Facebook によって割り当てられた appId を取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.AppSecret">
+      <summary>Facebook によって割り当てられたアプリのシークレットを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.BackchannelCertificateValidator">
+      <summary>Facebook に属するバック チャネル通信で使用されるエンドポイントの検証に使用する、固定された証明書検証コントロールを取得または設定します。</summary>
+      <returns>固定された証明書検証コントロール。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.BackchannelHttpHandler">
+      <summary>Facebook との通信に使用される HttpMessageHandler。値を WebRequestHandler にダウンキャストできない場合、これを BackchannelCertificateValidator と同時に設定することはできません。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.BackchannelTimeout">
+      <summary>Facebook とのバック チャネル通信のタイムアウト値をミリ秒で取得または設定します。</summary>
+      <returns>ミリ秒単位でのバック チャネルのタイムアウト。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.CallbackPath">
+      <summary>ユーザー エージェントが返される、アプリケーションの基本パス内の要求パス。この要求が到着するとミドルウェアが処理します。既定値は "/signin-facebook" です。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.Caption">
+      <summary>ユーザーがサインイン ユーザー インターフェイスに表示できるテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.Provider">
+      <summary>認証イベントの処理に使用される <see cref="T:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider" /> を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.Scope">
+      <summary>要求するアクセス許可の一覧。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.SendAppSecretProof">
+      <summary>appsecret_proof を生成して Facebook API の呼び出しと共に送信するかどうかを取得または設定します。既定では、これが有効になります。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.SignInAsAuthenticationType">
+      <summary>実際にユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> を発行する別の認証ミドルウェアの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions.StateDataFormat">
+      <summary>ミドルウェアによって処理されるデータの保護に使用される種類を取得または設定します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider">
+      <summary>既定の <see cref="T:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider" /> の実装。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider" /> を初期化します</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Facebook.FacebookApplyRedirectContext)">
+      <summary>Facebook ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext)">
+      <summary>Facebook がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.OnApplyRedirect">
+      <summary>ApplyRedirect メソッドの呼び出し時に呼び出されるデリゲートを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.OnAuthenticated">
+      <summary>Authenticated メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.OnReturnEndpoint">
+      <summary>ReturnEndpoint メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Facebook.FacebookReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Facebook.FacebookReturnEndpointContext">
+      <summary>コンテキスト情報をミドルウェア プロバイダーに提供します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.FacebookReturnEndpointContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket)">
+      <param name="context">OWIN 環境</param>
+      <param name="ticket">認証チケット</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider">
+      <summary>開発者による認証プロセスの制御を有効にするために <see cref="T:Microsoft.Owin.Security.Facebook.FacebookAuthenticationMiddleware" /> が呼び出すコールバック メソッドを指定します。/&amp;amp;gt;</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Facebook.FacebookApplyRedirectContext)">
+      <summary>Facebook ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Facebook.FacebookAuthenticatedContext)">
+      <summary>Facebook がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Facebook.IFacebookAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Facebook.FacebookReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+    </member>
+    <member name="T:Owin.FacebookAuthenticationExtensions">
+      <summary>Facebook 認証の拡張メソッドを提供します。</summary>
+    </member>
+    <member name="M:Owin.FacebookAuthenticationExtensions.UseFacebookAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions)">
+      <summary>OWIN アプリケーションの Facebook 認証を生成します。</summary>
+      <returns>認証を生成する <see cref="T:Owin.IAppBuilder" />。</returns>
+      <param name="app">アプリケーション ビルダー。</param>
+      <param name="options">Facebook の認証オプション。</param>
+    </member>
+    <member name="M:Owin.FacebookAuthenticationExtensions.UseFacebookAuthentication(Owin.IAppBuilder,System.String,System.String)">
+      <summary>OWIN アプリケーションの Facebook 認証を生成します。</summary>
+      <returns>認証を生成する <see cref="T:Owin.IAppBuilder" />。</returns>
+      <param name="app">アプリケーション ビルダー。</param>
+      <param name="appId">アプリケーション ID。</param>
+      <param name="appSecret">アプリケーション シークレット。</param>
+    </member>
+  </members>
+</doc>

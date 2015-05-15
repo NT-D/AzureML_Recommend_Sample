@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Security.MicrosoftAccount</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider">
+      <summary>開発者による認証プロセスの制御を有効にするために <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware" /> が呼び出すコールバック メソッドを指定します。/&amp;amp;gt;</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext)">
+      <summary>Microsoft ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider.Authenticated(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext)">
+      <summary>Microsoft がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext">
+      <summary>Microsoft アカウント ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に渡されるコンテキスト</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions,Microsoft.Owin.Security.AuthenticationProperties,System.String)">
+      <summary>新しいコンテキスト オブジェクトを作成します。</summary>
+      <param name="context">OWIN 要求コンテキスト</param>
+      <param name="options">Microsoft アカウント ミドルウェアのオプション</param>
+      <param name="properties">チャレンジの認証プロパティ</param>
+      <param name="redirectUri">初期リダイレクト URI</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext.Properties">
+      <summary>チャレンジの認証プロパティを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext.RedirectUri">
+      <summary>リダイレクト操作に使用される URI を取得します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext">
+      <summary>ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.#ctor(Microsoft.Owin.IOwinContext,Newtonsoft.Json.Linq.JObject,System.String,System.String,System.String)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext" /> を初期化します</summary>
+      <param name="context">OWIN 環境</param>
+      <param name="user">JSON 形式でシリアル化されたユーザー</param>
+      <param name="accessToken">Microsoft 認証サービスによって提供されたアクセス トークン</param>
+      <param name="refreshToken">Microsoft 認証サービスによって提供された更新トークン</param>
+      <param name="expires">有効期限までの秒数</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.AccessToken">
+      <summary>Microsoft 認証サービスによって提供されたアクセス トークンを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Email">
+      <summary>ユーザーの電子メール アドレスを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.ExpiresIn">
+      <summary>Microsoft アクセス トークンの有効期限を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.FirstName">
+      <summary>ユーザーの名を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Id">
+      <summary>Microsoft アカウントのユーザー ID を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Identity">
+      <summary>ユーザーを表す <see cref="T:System.Security.Claims.ClaimsIdentity" /> を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.LastName">
+      <summary>ユーザーの姓を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Name">
+      <summary>ユーザー名を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.Properties">
+      <summary>共通の認証プロパティのプロパティ バッグを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.RefreshToken">
+      <summary>Microsoft 認証サービスによって提供された更新トークンを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext.User">
+      <summary>JSON 形式でシリアル化されたユーザーを取得します</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware">
+      <summary>Microsoft アカウント サービスを使用してユーザーを認証するための OWIN ミドルウェア</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Owin.IAppBuilder,Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware" /> を初期化します</summary>
+      <param name="next">OWIN パイプライン内で次に呼び出すミドルウェア</param>
+      <param name="app">OWIN アプリケーション</param>
+      <param name="options">ミドルウェアの構成オプション</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware.CreateHandler">
+      <summary>認証関連要求を処理するための <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" /> オブジェクトを提供します。</summary>
+      <returns>コンストラクターに指定された <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions" /> で構成された <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware" /> の構成オプション</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.#ctor">
+      <summary>新しい <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions" /> を初期化します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.BackchannelCertificateValidator">
+      <summary>Microsoft アカウントに属するバック チャネル通信で使用されるエンドポイントの検証に使用する、固定された証明書検証コントロールを取得または設定します。</summary>
+      <returns>固定された証明書検証コントロール。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.BackchannelHttpHandler">
+      <summary>Microsoft との通信に使用される HttpMessageHandler。値を WebRequestHandler にダウンキャストできない場合、これを BackchannelCertificateValidator と同時に設定することはできません。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.BackchannelTimeout">
+      <summary>Microsoft とのバック チャネル通信のタイムアウト値をミリ秒で取得または設定します。</summary>
+      <returns>バック チャネルのタイムアウト。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.CallbackPath">
+      <summary>ユーザー エージェントが返される、アプリケーションの基本パス内の要求パス。この要求が到着するとミドルウェアが処理します。既定値は "/signin-microsoft" です。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.Caption">
+      <summary>ユーザーがサインイン ユーザー インターフェイスに表示できるテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.ClientId">
+      <summary>Microsoft 認証サービスによって割り当てられたアプリケーション クライアント ID。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.ClientSecret">
+      <summary>Microsoft 認証サービスによって割り当てられたアプリケーション クライアント シークレット。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.Provider">
+      <summary>認証イベントの処理に使用される <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider" /> を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.Scope">
+      <summary>要求するアクセス許可の一覧。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.SignInAsAuthenticationType">
+      <summary>実際にユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> を発行する別の認証ミドルウェアの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions.StateDataFormat">
+      <summary>ミドルウェアによって処理されるデータの保護に使用される種類を取得または設定します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider">
+      <summary>既定の <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.IMicrosoftAccountAuthenticationProvider" /> の実装。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.#ctor">
+      <summary>新しい <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider" /> を初期化します</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountApplyRedirectContext)">
+      <summary>Microsoft アカウント ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.Authenticated(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticatedContext)">
+      <summary>Microsoft がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.OnApplyRedirect">
+      <summary>ApplyRedirect メソッドの呼び出し時に呼び出されるデリゲートを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.OnAuthenticated">
+      <summary>Authenticated メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.OnReturnEndpoint">
+      <summary>ReturnEndpoint メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext">
+      <summary>コンテキスト情報をミドルウェア プロバイダーに提供します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket)">
+      <summary>新しい <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountReturnEndpointContext" /> を初期化します。</summary>
+      <param name="context">OWIN 環境</param>
+      <param name="ticket">認証チケット</param>
+    </member>
+    <member name="T:Owin.MicrosoftAccountAuthenticationExtensions">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationMiddleware" /> を使用するための拡張メソッド</summary>
+    </member>
+    <member name="M:Owin.MicrosoftAccountAuthenticationExtensions.UseMicrosoftAccountAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.MicrosoftAccount.MicrosoftAccountAuthenticationOptions)">
+      <summary>Microsoft アカウントでユーザーを認証します</summary>
+      <returns>更新された <see cref="T:Owin.IAppBuilder" /></returns>
+      <param name="app">構成メソッドに渡される <see cref="T:Owin.IAppBuilder" /></param>
+      <param name="options">ミドルウェア構成オプション</param>
+    </member>
+    <member name="M:Owin.MicrosoftAccountAuthenticationExtensions.UseMicrosoftAccountAuthentication(Owin.IAppBuilder,System.String,System.String)">
+      <summary>Microsoft アカウントでユーザーを認証します</summary>
+      <param name="app">構成メソッドに渡される <see cref="T:Owin.IAppBuilder" /></param>
+      <param name="clientId">Microsoft 認証サービスによって割り当てられたアプリケーション クライアント ID</param>
+      <param name="clientSecret">Microsoft 認証サービスによって割り当てられたアプリケーション クライアント シークレット</param>
+    </member>
+  </members>
+</doc>

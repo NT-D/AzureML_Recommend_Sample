@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Web.Http.Owin</name>
+  </assembly>
+  <members>
+    <member name="T:System.Net.Http.OwinHttpRequestMessageExtensions">
+      <summary>
+        <see cref="T:System.Net.Http.HttpRequestMessage" /> クラスの拡張メソッドを提供します。</summary>
+    </member>
+    <member name="M:System.Net.Http.OwinHttpRequestMessageExtensions.GetOwinContext(System.Net.Http.HttpRequestMessage)">
+      <summary>指定された要求の OWIN コンテキストを取得します。</summary>
+      <returns>使用可能な場合は、指定されたコンテキストの OWIN 環境。それ以外の場合は <see cref="null" />。</returns>
+      <param name="request">HTTP 要求メッセージ。</param>
+    </member>
+    <member name="M:System.Net.Http.OwinHttpRequestMessageExtensions.GetOwinEnvironment(System.Net.Http.HttpRequestMessage)">
+      <summary>指定された要求の OWIN 環境を取得します。</summary>
+      <returns>使用可能な場合は、指定された要求の OWIN 環境。それ以外の場合は <see cref="null" />。</returns>
+      <param name="request">HTTP 要求メッセージ。</param>
+    </member>
+    <member name="M:System.Net.Http.OwinHttpRequestMessageExtensions.SetOwinContext(System.Net.Http.HttpRequestMessage,Microsoft.Owin.IOwinContext)">
+      <summary>指定された要求の OWIN コンテキストを設定します。</summary>
+      <param name="request">HTTP 要求メッセージ。</param>
+      <param name="context">設定する OWIN コンテキスト。</param>
+    </member>
+    <member name="M:System.Net.Http.OwinHttpRequestMessageExtensions.SetOwinEnvironment(System.Net.Http.HttpRequestMessage,System.Collections.Generic.IDictionary{System.String,System.Object})">
+      <summary>指定された要求の OWIN 環境を設定します。</summary>
+      <param name="request">HTTP 要求メッセージ。</param>
+      <param name="environment">設定する OWIN 環境。</param>
+    </member>
+    <member name="T:System.Web.Http.HostAuthenticationAttribute">
+      <summary>OWIN ミドルウェアを介して認証を行う認証属性を表します。</summary>
+    </member>
+    <member name="M:System.Web.Http.HostAuthenticationAttribute.#ctor(System.String)">
+      <summary>
+        <see cref="T:System.Web.Http.HostAuthenticationAttribute" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="authenticationType">OWIN ミドルウェアで使用する認証の種類。</param>
+    </member>
+    <member name="P:System.Web.Http.HostAuthenticationAttribute.AllowMultiple"></member>
+    <member name="M:System.Web.Http.HostAuthenticationAttribute.AuthenticateAsync(System.Web.Http.Filters.HttpAuthenticationContext,System.Threading.CancellationToken)"></member>
+    <member name="P:System.Web.Http.HostAuthenticationAttribute.AuthenticationType">
+      <summary>OWIN ミドルウェアで使用する認証の種類を取得します。</summary>
+    </member>
+    <member name="M:System.Web.Http.HostAuthenticationAttribute.ChallengeAsync(System.Web.Http.Filters.HttpAuthenticationChallengeContext,System.Threading.CancellationToken)"></member>
+    <member name="T:System.Web.Http.HostAuthenticationFilter">
+      <summary>OWIN ミドルウェアを介して認証を行う認証フィルターを表します。</summary>
+    </member>
+    <member name="M:System.Web.Http.HostAuthenticationFilter.#ctor(System.String)">
+      <summary>
+        <see cref="T:System.Web.Http.HostAuthenticationFilter" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="authenticationType">OWIN ミドルウェアで使用する認証の種類。</param>
+    </member>
+    <member name="P:System.Web.Http.HostAuthenticationFilter.AllowMultiple">
+      <summary>フィルターが複数の認証を許可するかどうかを示す値を取得します。</summary>
+      <returns>フィルターが複数の認証を許可する場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="M:System.Web.Http.HostAuthenticationFilter.AuthenticateAsync(System.Web.Http.Filters.HttpAuthenticationContext,System.Threading.CancellationToken)">
+      <summary>要求を非同期に認証します。</summary>
+      <returns>認証を完了するタスク。</returns>
+      <param name="context">認証コンテキスト。</param>
+      <param name="cancellationToken">キャンセル トークン。</param>
+    </member>
+    <member name="P:System.Web.Http.HostAuthenticationFilter.AuthenticationType">
+      <summary>OWIN ミドルウェアで使用する認証の種類を取得します。</summary>
+      <returns>OWIN ミドルウェアで使用する認証の種類。</returns>
+    </member>
+    <member name="M:System.Web.Http.HostAuthenticationFilter.ChallengeAsync(System.Web.Http.Filters.HttpAuthenticationChallengeContext,System.Threading.CancellationToken)">
+      <summary>認証を非同期にチャレンジします。</summary>
+      <returns>チャレンジを完了するタスク。</returns>
+      <param name="context">コンテキスト。</param>
+      <param name="cancellationToken">キャンセル トークン。</param>
+    </member>
+    <member name="T:System.Web.Http.OwinHttpConfigurationExtensions">
+      <summary>
+        <see cref="T:System.Web.Http.HttpConfiguration" /> クラスの拡張メソッドを提供します。</summary>
+    </member>
+    <member name="M:System.Web.Http.OwinHttpConfigurationExtensions.SuppressDefaultHostAuthentication(System.Web.Http.HttpConfiguration)">
+      <summary>ホストの既定の認証の抑制を有効にします。</summary>
+      <param name="configuration">サーバー構成。</param>
+    </member>
+    <member name="T:System.Web.Http.Owin.HttpMessageHandlerAdapter">
+      <summary>呼び出されたときに要求を <see cref="T:System.Net.Http.HttpMessageHandler" /> に送信する OWIN コンポーネントを表します。</summary>
+    </member>
+    <member name="M:System.Web.Http.Owin.HttpMessageHandlerAdapter.#ctor(Microsoft.Owin.OwinMiddleware,System.Net.Http.HttpMessageHandler,System.Web.Http.Hosting.IHostBufferPolicySelector)">
+      <summary>
+        <see cref="T:System.Web.Http.Owin.HttpMessageHandlerAdapter" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="next">パイプラインの次のコンポーネント。</param>
+      <param name="messageHandler">要求の送信先となる <see cref="T:System.Net.Http.HttpMessageHandler" />。</param>
+      <param name="bufferPolicySelector">要求と応答をバッファーするかどうかを判断する <see cref="T:System.Web.Http.Hosting.IHostBufferPolicySelector" />。</param>
+    </member>
+    <member name="M:System.Web.Http.Owin.HttpMessageHandlerAdapter.#ctor(Microsoft.Owin.OwinMiddleware,System.Web.Http.Owin.HttpMessageHandlerOptions)">
+      <summary>
+        <see cref="T:System.Web.Http.Owin.HttpMessageHandlerAdapter" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="next">パイプラインの次のコンポーネント。</param>
+      <param name="options">このアダプターを設定するオプション。</param>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerAdapter.AppDisposing">
+      <summary>このコンポーネントのクリーンアップをトリガーするキャンセル トークンを取得します。</summary>
+      <returns>キャンセル トークン。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerAdapter.BufferPolicySelector">
+      <summary>要求と応答をバッファーするかどうかを決める <see cref="T:System.Web.Http.Hosting.IHostBufferPolicySelector" /> を取得します。</summary>
+      <returns>要求と応答をバッファーするかどうかを判断する <see cref="T:System.Web.Http.Hosting.IHostBufferPolicySelector" />。</returns>
+    </member>
+    <member name="M:System.Web.Http.Owin.HttpMessageHandlerAdapter.Dispose">
+      <summary>
+        <see cref="T:System.Web.Http.Owin.HttpMessageHandlerAdapter" /> クラスの現在のインスタンスによって使用されているすべてのリソースを解放します。</summary>
+    </member>
+    <member name="M:System.Web.Http.Owin.HttpMessageHandlerAdapter.Dispose(System.Boolean)">
+      <summary>アンマネージ リソースを解放し、必要に応じてマネージ リソースも解放します。</summary>
+      <param name="disposing">マネージ リソースとアンマネージ リソースの両方を解放する場合は true。アンマネージ リソースだけを解放する場合は false。</param>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerAdapter.ExceptionHandler">
+      <summary>未処理の例外の処理に使用する <see cref="T:System.Web.Http.ExceptionHandling.IExceptionHandler" /> を取得します。</summary>
+      <returns>未処理の例外の処理に使用する<see cref="T:System.Web.Http.ExceptionHandling.IExceptionHandler" />。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerAdapter.ExceptionLogger">
+      <summary>未処理の例外の記録に使用する <see cref="T:System.Web.Http.ExceptionHandling.IExceptionLogger" /> を取得します。</summary>
+      <returns>未処理の例外の記録に使用する<see cref="T:System.Web.Http.ExceptionHandling.IExceptionLogger" />。</returns>
+    </member>
+    <member name="M:System.Web.Http.Owin.HttpMessageHandlerAdapter.Invoke(Microsoft.Owin.IOwinContext)">
+      <returns>
+        <see cref="T:System.Threading.Tasks.Task" /> を返します。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerAdapter.MessageHandler">
+      <summary>要求の送信先となる <see cref="T:System.Net.Http.HttpMessageHandler" /> を取得します。</summary>
+      <returns>要求の送信先となる <see cref="T:System.Net.Http.HttpMessageHandler" />。</returns>
+    </member>
+    <member name="T:System.Web.Http.Owin.HttpMessageHandlerOptions">
+      <summary>
+        <see cref="T:System.Web.Http.Owin.HttpMessageHandlerAdapter" /> を設定するオプションを表します。</summary>
+    </member>
+    <member name="M:System.Web.Http.Owin.HttpMessageHandlerOptions.#ctor">
+      <summary>
+        <see cref="T:System.Web.Http.Owin.HttpMessageHandlerOptions" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerOptions.AppDisposing">
+      <summary>
+        <see cref="T:System.Web.Http.Owin.HttpMessageHandlerAdapter" /> のクリーンアップをトリガーする <see cref="T:System.Threading.CancellationToken" /> を取得または設定します。</summary>
+      <returns>
+        <see cref="T:System.Web.Http.Owin.HttpMessageHandlerAdapter" /> のクリーンアップをトリガーする <see cref="T:System.Threading.CancellationToken" />。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerOptions.BufferPolicySelector">
+      <summary>要求と応答をバッファーするかどうかを決める <see cref="T:System.Web.Http.Hosting.IHostBufferPolicySelector" /> を取得または設定します。</summary>
+      <returns>要求と応答をバッファーするかどうかを判断する <see cref="T:System.Web.Http.Hosting.IHostBufferPolicySelector" />。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerOptions.ExceptionHandler">
+      <summary>未処理の例外の処理に使用する <see cref="T:System.Web.Http.ExceptionHandling.IExceptionHandler" /> を取得または設定します。</summary>
+      <returns>未処理の例外の処理に使用する<see cref="T:System.Web.Http.ExceptionHandling.IExceptionHandler" />。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerOptions.ExceptionLogger">
+      <summary>未処理の例外の記録に使用する <see cref="T:System.Web.Http.ExceptionHandling.IExceptionLogger" /> を取得または設定します。</summary>
+      <returns>未処理の例外の記録に使用する<see cref="T:System.Web.Http.ExceptionHandling.IExceptionLogger" />。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.HttpMessageHandlerOptions.MessageHandler">
+      <summary>要求の送信先となる <see cref="T:System.Net.Http.HttpMessageHandler" /> を取得または設定します。</summary>
+      <returns>要求の送信先となる <see cref="T:System.Net.Http.HttpMessageHandler" />。</returns>
+    </member>
+    <member name="T:System.Web.Http.Owin.OwinBufferPolicySelector">
+      <summary>OWIN Web API アダプターで使用される <see cref="T:System.Web.Http.Hosting.IHostBufferPolicySelector" /> の既定の実装を提供します。</summary>
+    </member>
+    <member name="M:System.Web.Http.Owin.OwinBufferPolicySelector.#ctor">
+      <summary>
+        <see cref="T:System.Web.Http.Owin.OwinBufferPolicySelector" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:System.Web.Http.Owin.OwinBufferPolicySelector.UseBufferedInputStream(System.Object)">
+      <summary>ホストが HttpRequestMessage エンティティ本文をバッファーする必要があるかどうかを判断します。</summary>
+      <returns>バッファリングを使用する場合は true。それ以外の場合は、ストリーミングされた要求が使用されます。</returns>
+      <param name="hostContext">ホストのコンテキスト。</param>
+    </member>
+    <member name="M:System.Web.Http.Owin.OwinBufferPolicySelector.UseBufferedOutputStream(System.Net.Http.HttpResponseMessage)">
+      <summary>ホストが HttpResponseMessage エンティティ本文をバッファーする必要があるかどうかを判断します。</summary>
+      <returns>バッファリングを使用する場合は true。それ以外の場合は、ストリーミングされた応答が使用されます。</returns>
+      <param name="response">応答。</param>
+    </member>
+    <member name="T:System.Web.Http.Owin.OwinExceptionCatchBlocks">
+      <summary>このアセンブリ内で使用される catch ブロックを提供します。</summary>
+    </member>
+    <member name="P:System.Web.Http.Owin.OwinExceptionCatchBlocks.HttpMessageHandlerAdapterBufferContent">
+      <summary>System.Web.Http.Owin.HttpMessageHandlerAdapter.BufferContent の catch ブロックを取得します。</summary>
+      <returns>System.Web.Http.Owin.HttpMessageHandlerAdapter.BufferContent の catch ブロック。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.OwinExceptionCatchBlocks.HttpMessageHandlerAdapterBufferError">
+      <summary>System.Web.Http.Owin.HttpMessageHandlerAdapter.BufferError の catch ブロックを取得します。</summary>
+      <returns>System.Web.Http.Owin.HttpMessageHandlerAdapter.BufferError の catch ブロック。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.OwinExceptionCatchBlocks.HttpMessageHandlerAdapterComputeContentLength">
+      <summary>System.Web.Http.Owin.HttpMessageHandlerAdapter.ComputeContentLength の catch ブロックを取得します</summary>
+      <returns>System.Web.Http.Owin.HttpMessageHandlerAdapter.ComputeContentLength の catch ブロック。</returns>
+    </member>
+    <member name="P:System.Web.Http.Owin.OwinExceptionCatchBlocks.HttpMessageHandlerAdapterStreamContent">
+      <summary>System.Web.Http.Owin.HttpMessageHandlerAdapter.StreamContent の catch ブロックを取得します。</summary>
+      <returns>System.Web.Http.Owin.HttpMessageHandlerAdapter.StreamContent の catch ブロック。</returns>
+    </member>
+    <member name="T:System.Web.Http.Owin.PassiveAuthenticationMessageHandler">
+      <summary>すべての OWIN 認証ミドルウェアをパッシブとして扱うメッセージ ハンドラーを表します。</summary>
+    </member>
+    <member name="M:System.Web.Http.Owin.PassiveAuthenticationMessageHandler.#ctor">
+      <summary>
+        <see cref="T:System.Web.Http.Owin.PassiveAuthenticationMessageHandler" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:System.Web.Http.Owin.PassiveAuthenticationMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+      <summary>メッセージ要求を非同期に送信します。</summary>
+      <returns>非同期操作を完了するタスク。</returns>
+      <param name="request">メッセージ要求。</param>
+      <param name="cancellationToken">キャンセル トークン。</param>
+    </member>
+  </members>
+</doc>

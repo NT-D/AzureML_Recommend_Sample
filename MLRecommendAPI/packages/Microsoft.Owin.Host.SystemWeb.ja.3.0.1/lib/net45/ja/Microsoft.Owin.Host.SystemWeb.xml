@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Host.SystemWeb</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler">
+      <summary>System.Web からの要求を OWIN 要求として処理します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.#ctor">
+      <summary>既定の OWIN アプリケーションを使用して要求を処理します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.BeginProcessRequest(System.Web.HttpContextBase,System.AsyncCallback,System.Object)">
+      <summary>HTTP ハンドラーの非同期呼び出しを開始します。</summary>
+      <returns>プロセスの状態に関する情報を格納する System.IAsyncResult。</returns>
+      <param name="httpContext">HTTP 要求を処理するために使用される、組み込みのサーバー オブジェクト (Request、Response、Session、Server など) への参照を提供する System.Web.HttpContextBase オブジェクト。</param>
+      <param name="callback">非同期メソッド呼び出しが完了したときに呼び出す System.AsyncCallback。コールバックが null の場合、デリゲートは呼び出されません。</param>
+      <param name="extraData">要求を処理するために必要な追加データ。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.EndProcessRequest(System.IAsyncResult)">
+      <summary>プロセスが終了するときに、非同期プロセスの End メソッドを提供します。</summary>
+      <param name="result">プロセスの状態に関する情報を格納する System.IAsyncResult。</param>
+    </member>
+    <member name="P:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.IsReusable">
+      <summary>別の要求で System.Web.IHttpHandler インスタンスを使用できるかどうかを示す値を取得します。</summary>
+      <returns>true。</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.System#Web#IHttpAsyncHandler#BeginProcessRequest(System.Web.HttpContext,System.AsyncCallback,System.Object)">
+      <summary>HTTP ハンドラーの非同期呼び出しを開始します。</summary>
+      <returns>プロセスの状態に関する情報を格納する <see cref="T:System.IAsyncResult" />。</returns>
+      <param name="context">HTTP 要求を処理するために使用される、組み込みのサーバー オブジェクト (Request、Response、Session、Server など) への参照を提供する <see cref="T:System.Web.HttpContext" /> オブジェクト。</param>
+      <param name="cb">非同期メソッド呼び出しが完了したときに呼び出す <see cref="T:System.AsyncCallback" />。コールバックが null の場合、デリゲートは呼び出されません。</param>
+      <param name="extraData">要求を処理するために必要な追加データ。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinHttpHandler.System#Web#IHttpHandler#ProcessRequest(System.Web.HttpContext)">
+      <summary>HTTP ハンドラーの要求を処理します。</summary>
+      <param name="context">コンテキスト。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Host.SystemWeb.OwinRouteHandler">
+      <summary>OWIN パイプライン経由でルートを処理します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinRouteHandler.#ctor(System.Action{Owin.IAppBuilder})">
+      <summary>OwinRouteHandler を初期化します</summary>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinRouteHandler.GetHttpHandler(System.Web.Routing.RequestContext)">
+      <summary>要求を処理するオブジェクトを提供します。</summary>
+      <returns>要求を処理するオブジェクト。</returns>
+      <param name="requestContext">要求に関する情報をカプセル化しているオブジェクト。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.OwinRouteHandler.System#Web#Routing#IRouteHandler#GetHttpHandler(System.Web.Routing.RequestContext)">
+      <summary>要求を処理するオブジェクトを提供します。</summary>
+      <returns>要求を処理するオブジェクト。</returns>
+      <param name="requestContext">要求に関する情報をカプセル化しているオブジェクト。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Host.SystemWeb.PreApplicationStart">
+      <summary>アプリケーションのスタートアップ時に OWIN 要求処理モジュールを登録します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Host.SystemWeb.PreApplicationStart.Initialize">
+      <summary>OWIN 要求処理モジュールを登録します。</summary>
+    </member>
+    <member name="T:System.Web.HttpContextBaseExtensions">
+      <summary>
+        <see cref="T:System.Web.HttpContextBase" /> の拡張メソッドを提供します。</summary>
+    </member>
+    <member name="M:System.Web.HttpContextBaseExtensions.GetOwinContext(System.Web.HttpContextBase)">
+      <summary>現在の要求の <see cref="T:Microsoft.Owin.IOwinContext" /> を取得します。</summary>
+    </member>
+    <member name="M:System.Web.HttpContextBaseExtensions.GetOwinContext(System.Web.HttpRequestBase)">
+      <summary>現在の要求の <see cref="T:Microsoft.Owin.IOwinContext" /> を取得します。</summary>
+    </member>
+    <member name="T:System.Web.HttpContextExtensions">
+      <summary>
+        <see cref="T:System.Web.HttpContext" /> の拡張メソッドを提供します。</summary>
+    </member>
+    <member name="M:System.Web.HttpContextExtensions.GetOwinContext(System.Web.HttpContext)">
+      <summary>現在の要求の <see cref="T:Microsoft.Owin.IOwinContext" /> を取得します。</summary>
+    </member>
+    <member name="M:System.Web.HttpContextExtensions.GetOwinContext(System.Web.HttpRequest)">
+      <summary>現在の要求の <see cref="T:Microsoft.Owin.IOwinContext" /> を取得します。</summary>
+    </member>
+    <member name="T:System.Web.Routing.RouteCollectionExtensions">
+      <summary>OWIN アプリケーションを System.Web ルートとして登録するための拡張メソッドを提供します。</summary>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath(System.Web.Routing.RouteCollection,System.String)">
+      <summary>既定の OWIN アプリケーションのルートを登録します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="pathBase">既定の OWIN アプリケーションにマップするルート パス。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath(System.Web.Routing.RouteCollection,System.String,System.Action{Owin.IAppBuilder})">
+      <summary>System.Action 起動デリゲートを呼び出すことにより、OWIN アプリケーションを構築し、指定されたパスにそのアプリケーションへのルートを登録します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="pathBase">指定された OWIN アプリケーションにマップするルート パス。</param>
+      <param name="startup">OWIN アプリケーションを構築するために呼び出される System.Action デリゲート。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath(System.Web.Routing.RouteCollection,System.String,System.String)">
+      <summary> 既定の OWIN アプリケーションのルートを登録します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="name">ルートの指定された名前。</param>
+      <param name="pathBase">既定の OWIN アプリケーションにマップするルート パス。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath(System.Web.Routing.RouteCollection,System.String,System.String,System.Action{Owin.IAppBuilder})">
+      <summary> System.Action 起動デリゲートを呼び出すことにより、OWIN アプリケーションを構築し、指定されたパスにそのアプリケーションへのルートを登録します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="name">ルートの指定された名前。</param>
+      <param name="pathBase">指定された OWIN アプリケーションにマップするルート パス。</param>
+      <param name="startup">OWIN アプリケーションを構築するために呼び出される System.Action デリゲート。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath``1(System.Web.Routing.RouteCollection,System.String,System.String,``0)">
+      <summary> 特定の OWIN アプリケーションのエントリ ポイントへのルートを登録します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="name">ルートの指定された名前。</param>
+      <param name="pathBase">指定された OWIN アプリケーションにマップするルート パス。</param>
+      <param name="app">OWIN アプリケーションのエントリ ポイント。</param>
+      <typeparam name="TApp">OWIN アプリケーションのエントリ ポイントの種類。</typeparam>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinPath``1(System.Web.Routing.RouteCollection,System.String,``0)">
+      <summary> 特定の OWIN アプリケーションのエントリ ポイントへのルートを登録します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="pathBase">指定された OWIN アプリケーションにマップするルート パス。</param>
+      <param name="app">OWIN アプリケーションのエントリ ポイント。</param>
+      <typeparam name="TApp">OWIN アプリケーションのエントリ ポイントの種類。</typeparam>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.Action{Owin.IAppBuilder})">
+      <summary>OWIN パイプラインへのルートを定義する方法を提供します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="routeUrl">ルートの URL パターン。</param>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.String,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN パイプラインへのルートを定義する方法を提供します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="routeName">ルートの名前。</param>
+      <param name="routeUrl">ルートの URL パターン。</param>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN パイプラインへのルートを定義する方法を提供します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="routeName">ルートの名前。</param>
+      <param name="routeUrl">ルートの URL パターン。</param>
+      <param name="defaults">URL にすべてのパラメーターが含まれていない場合に使用する値。</param>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN パイプラインへのルートを定義する方法を提供します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="routeName">ルートの名前。</param>
+      <param name="routeUrl">ルートの URL パターン。</param>
+      <param name="defaults">URL にすべてのパラメーターが含まれていない場合に使用する値。</param>
+      <param name="constraints">URL パラメーターとして有効な値を指定する正規表現。</param>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN パイプラインへのルートを定義する方法を提供します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="routeName">ルートの名前。</param>
+      <param name="routeUrl">ルートの URL パターン。</param>
+      <param name="defaults">URL にすべてのパラメーターが含まれていない場合に使用する値。</param>
+      <param name="constraints">URL パラメーターとして有効な値を指定する正規表現。</param>
+      <param name="dataTokens">ルート ハンドラーに渡されるカスタム値。ルートが特定の URL パターンに一致しているかどうかを判断するためには使用されません。これらの値は、ルート ハンドラーに渡され、そこで要求の処理に使用することができます。</param>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN パイプラインへのルートを定義する方法を提供します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="routeUrl">ルートの URL パターン。</param>
+      <param name="defaults">URL にすべてのパラメーターが含まれていない場合に使用する値。</param>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN パイプラインへのルートを定義する方法を提供します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="routeUrl">ルートの URL パターン。</param>
+      <param name="defaults">URL にすべてのパラメーターが含まれていない場合に使用する値。</param>
+      <param name="constraints">URL パラメーターとして有効な値を指定する正規表現。</param>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+    <member name="M:System.Web.Routing.RouteCollectionExtensions.MapOwinRoute(System.Web.Routing.RouteCollection,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteValueDictionary,System.Action{Owin.IAppBuilder})">
+      <summary> OWIN パイプラインへのルートを定義する方法を提供します。</summary>
+      <returns>作成されたルート。</returns>
+      <param name="routes">ルート コレクション。</param>
+      <param name="routeUrl">ルートの URL パターン。</param>
+      <param name="defaults">URL にすべてのパラメーターが含まれていない場合に使用する値。</param>
+      <param name="constraints">URL パラメーターとして有効な値を指定する正規表現。</param>
+      <param name="dataTokens">ルート ハンドラーに渡されるカスタム値。ルートが特定の URL パターンに一致しているかどうかを判断するためには使用されません。これらの値は、ルート ハンドラーに渡され、そこで要求の処理に使用することができます。</param>
+      <param name="startup">ルートの要求を処理するパイプラインを初期化するメソッド。</param>
+    </member>
+  </members>
+</doc>

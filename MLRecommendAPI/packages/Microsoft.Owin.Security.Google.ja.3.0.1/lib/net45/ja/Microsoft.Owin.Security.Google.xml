@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Security.Google</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleApplyRedirectContext">
+      <summary>Google OpenID ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に渡されるコンテキスト</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleApplyRedirectContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.Google.GoogleAuthenticationOptions,Microsoft.Owin.Security.AuthenticationProperties,System.String)">
+      <summary>新しいコンテキスト オブジェクトを作成します。</summary>
+      <param name="context">OWIN 要求コンテキスト</param>
+      <param name="options">Google OpenID ミドルウェアのオプション</param>
+      <param name="properties">チャレンジの認証プロパティ</param>
+      <param name="redirectUri">初期リダイレクト URI</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleApplyRedirectContext.Properties">
+      <summary>チャレンジの認証プロパティを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleApplyRedirectContext.RedirectUri">
+      <summary>リダイレクト操作に使用される URI を取得します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleAuthenticatedContext">
+      <summary>ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleAuthenticatedContext.#ctor(Microsoft.Owin.IOwinContext,System.Security.Claims.ClaimsIdentity,Microsoft.Owin.Security.AuthenticationProperties,System.Xml.Linq.XElement,System.Collections.Generic.IDictionary{System.String,System.String})">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleAuthenticatedContext" /> を初期化します</summary>
+      <param name="context">OWIN 環境</param>
+      <param name="identity">ユーザーを表す <see cref="T:System.Security.Claims.ClaimsIdentity" /></param>
+      <param name="properties">一般的な認証プロパティのプロパティ バッグ</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticatedContext.AttributeExchangeProperties">
+      <summary>メッセージ プロパティのキーと値から成るディクショナリを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticatedContext.Identity">
+      <summary>ユーザーを表す <see cref="T:System.Security.Claims.ClaimsIdentity" /> を取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticatedContext.Properties">
+      <summary>共通の認証プロパティのプロパティ バッグを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticatedContext.ResponseMessage">
+      <summary>OpenID クエリ文字列から解析済みの応答メッセージを取得または設定します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleAuthenticationMiddleware">
+      <summary>Google OpenID を使用してユーザーを認証するための OWIN ミドルウェア</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleAuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Owin.IAppBuilder,Microsoft.Owin.Security.Google.GoogleAuthenticationOptions)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleAuthenticationMiddleware" /> を初期化します</summary>
+      <param name="next">OWIN パイプライン内で次に呼び出すミドルウェア</param>
+      <param name="app">OWIN アプリケーション</param>
+      <param name="options">ミドルウェアの構成オプション</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleAuthenticationMiddleware.CreateHandler">
+      <summary>認証関連要求を処理するための <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" /> オブジェクトを提供します。</summary>
+      <returns>コンストラクターに指定された <see cref="T:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions" /> で構成された <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleAuthenticationMiddleware" /> の構成オプション</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.#ctor">
+      <summary>新しい <see cref="T:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions" /> を初期化します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.BackchannelCertificateValidator">
+      <summary>Google に属するバック チャネル通信で使用されるエンドポイントの検証に使用する、固定された証明書検証コントロールを取得または設定します。</summary>
+      <returns>固定された証明書検証コントロール。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.BackchannelHttpHandler">
+      <summary>Google との通信に使用される HttpMessageHandler。値を WebRequestHandler にダウンキャストできない場合、これを BackchannelCertificateValidator と同時に設定することはできません。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.BackchannelTimeout">
+      <summary>Google とのバック チャネル通信のタイムアウト値をミリ秒で取得または設定します。</summary>
+      <returns>バック チャネルのタイムアウト。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.CallbackPath">
+      <summary>ユーザー エージェントが返される、アプリケーションの基本パス内の要求パス。この要求が到着するとミドルウェアが処理します。既定値は "/signin-google" です。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.Caption">
+      <summary>ユーザーがサインイン ユーザー インターフェイスに表示できるテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.Provider">
+      <summary>認証イベントの処理に使用される <see cref="T:Microsoft.Owin.Security.Google.IGoogleAuthenticationProvider" /> を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.SignInAsAuthenticationType">
+      <summary>実際にユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> を発行する別の認証ミドルウェアの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationOptions.StateDataFormat">
+      <summary>ミドルウェアによって処理されるデータの保護に使用される種類を取得または設定します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider">
+      <summary>既定の <see cref="T:Microsoft.Owin.Security.Google.IGoogleAuthenticationProvider" /> の実装。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider" /> を初期化します</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Google.GoogleApplyRedirectContext)">
+      <summary>Google OpenID ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Google.GoogleAuthenticatedContext)">
+      <summary>Google がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider.OnApplyRedirect">
+      <summary>ApplyRedirect メソッドの呼び出し時に呼び出されるデリゲートを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider.OnAuthenticated">
+      <summary>Authenticated メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider.OnReturnEndpoint">
+      <summary>ReturnEndpoint メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Google.GoogleReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleOAuth2ApplyRedirectContext">
+      <summary>Google OAuth 2.0 ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に渡されるコンテキスト</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2ApplyRedirectContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions,Microsoft.Owin.Security.AuthenticationProperties,System.String)">
+      <summary>新しいコンテキスト オブジェクトを作成します。</summary>
+      <param name="context">OWIN 要求コンテキスト</param>
+      <param name="options">Google OAuth 2.0 ミドルウェアのオプション</param>
+      <param name="properties">チャレンジの認証プロパティ</param>
+      <param name="redirectUri">初期リダイレクト URI</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2ApplyRedirectContext.Properties">
+      <summary>チャレンジの認証プロパティを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2ApplyRedirectContext.RedirectUri">
+      <summary>リダイレクト操作に使用される URI を取得します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext">
+      <summary>ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.#ctor(Microsoft.Owin.IOwinContext,Newtonsoft.Json.Linq.JObject,System.String,System.String,System.String)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext" /> を初期化します</summary>
+      <param name="context">OWIN 環境</param>
+      <param name="user">JSON 形式でシリアル化された Google ユーザー情報</param>
+      <param name="accessToken">Google OAuth 2.0 アクセス トークン</param>
+      <param name="refreshToken">Goolge OAuth 2.0 更新トークン</param>
+      <param name="expires">有効期限までの秒数</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.AccessToken">
+      <summary>Google のアクセス トークンを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.Email">
+      <summary>ユーザーの電子メールを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.ExpiresIn">
+      <summary>Google アクセス トークンの有効期限を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.FamilyName">
+      <summary>ユーザーの姓を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.GivenName">
+      <summary>ユーザーの名を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.Id">
+      <summary>Google のユーザー ID を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.Identity">
+      <summary>ユーザーを表す <see cref="T:System.Security.Claims.ClaimsIdentity" /> を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.Name">
+      <summary>ユーザーの名前を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.Profile">
+      <summary>ユーザーのプロファイル リンクを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.Properties">
+      <summary>共通の認証プロパティのプロパティ バッグを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.RefreshToken">
+      <summary>Google 更新トークンを取得します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext.User">
+      <summary>JSON 形式でシリアル化されたユーザーを取得します</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationMiddleware">
+      <summary>Google OAuth 2.0 を使用してユーザーを認証するための OWIN ミドルウェア</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Owin.IAppBuilder,Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationMiddleware" /> を初期化します</summary>
+      <param name="next">OWIN パイプライン内で次に呼び出すミドルウェア</param>
+      <param name="app">OWIN アプリケーション</param>
+      <param name="options">ミドルウェアの構成オプション</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationMiddleware.CreateHandler">
+      <summary>認証関連要求を処理するための <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" /> オブジェクトを提供します。</summary>
+      <returns>コンストラクターに指定された <see cref="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions" /> で構成された <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationMiddleware" /> の構成オプション</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.#ctor">
+      <summary>新しい <see cref="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions" /> を初期化します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.AccessType">
+      <summary>access_type。更新トークンを要求するには、'offline' に設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.BackchannelCertificateValidator">
+      <summary>Google に属するバック チャネル通信で使用されるエンドポイントの検証に使用する、固定された証明書検証コントロールを取得または設定します。</summary>
+      <returns>固定された証明書検証コントロール。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.BackchannelHttpHandler">
+      <summary>Google との通信に使用される HttpMessageHandler。値を WebRequestHandler にダウンキャストできない場合、これを BackchannelCertificateValidator と同時に設定することはできません。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.BackchannelTimeout">
+      <summary>Google とのバック チャネル通信のタイムアウト値をミリ秒で取得または設定します。</summary>
+      <returns>ミリ秒単位でのバック チャネルのタイムアウト。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.CallbackPath">
+      <summary>ユーザー エージェントが返される、アプリケーションの基本パス内の要求パス。この要求が到着するとミドルウェアが処理します。既定値は "/signin-google" です。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.Caption">
+      <summary>ユーザーがサインイン ユーザー インターフェイスに表示できるテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.ClientId">
+      <summary>Google によって割り当てられたクライアント ID を取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.ClientSecret">
+      <summary>Google によって割り当てられたクライアント シークレットを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.Provider">
+      <summary>認証イベントの処理に使用される <see cref="T:Microsoft.Owin.Security.Google.IGoogleOAuth2AuthenticationProvider" /> を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.Scope">
+      <summary>要求するアクセス許可の一覧。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.SignInAsAuthenticationType">
+      <summary>実際にユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> を発行する別の認証ミドルウェアの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions.StateDataFormat">
+      <summary>ミドルウェアによって処理されるデータの保護に使用される種類を取得または設定します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider">
+      <summary>既定の <see cref="T:Microsoft.Owin.Security.Google.IGoogleOAuth2AuthenticationProvider" /> の実装。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider" /> を初期化します</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Google.GoogleOAuth2ApplyRedirectContext)">
+      <summary>Google OAuth 2.0 ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider.Authenticated(Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext)">
+      <summary>Google がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider.OnApplyRedirect">
+      <summary>ApplyRedirect メソッドの呼び出し時に呼び出されるデリゲートを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider.OnAuthenticated">
+      <summary>Authenticated メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider.OnReturnEndpoint">
+      <summary>ReturnEndpoint メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Google.GoogleOAuth2ReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">戻りエンドポイントのコンテキスト情報および認証チケットを格納します。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleOAuth2ReturnEndpointContext">
+      <summary>コンテキスト情報をミドルウェア プロバイダーに提供します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleOAuth2ReturnEndpointContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleOAuth2ReturnEndpointContext" /> を初期化します</summary>
+      <param name="context">OWIN 環境</param>
+      <param name="ticket">認証チケット</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.GoogleReturnEndpointContext">
+      <summary>コンテキスト情報をミドルウェア プロバイダーに提供します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.GoogleReturnEndpointContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket)">
+      <param name="context">OWIN 環境</param>
+      <param name="ticket">認証チケット</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.IGoogleAuthenticationProvider">
+      <summary>開発者による認証プロセスの制御を有効にするために <see cref="T:Microsoft.Owin.Security.Google.GoogleAuthenticationMiddleware" /> が呼び出すコールバック メソッドを指定します。/&amp;amp;gt;</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.IGoogleAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Google.GoogleApplyRedirectContext)">
+      <summary>Google OpenID ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.IGoogleAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Google.GoogleAuthenticatedContext)">
+      <summary>Google がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.IGoogleAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Google.GoogleReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Google.IGoogleOAuth2AuthenticationProvider">
+      <summary>開発者による認証プロセスの制御を有効にするために <see cref="T:Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationMiddleware" /> が呼び出すコールバック メソッドを指定します。/&amp;amp;gt;</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.IGoogleOAuth2AuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Google.GoogleOAuth2ApplyRedirectContext)">
+      <summary>Google OAuth 2.0 ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.IGoogleOAuth2AuthenticationProvider.Authenticated(Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticatedContext)">
+      <summary>Google がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Google.IGoogleOAuth2AuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Google.GoogleOAuth2ReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">戻りエンドポイントのコンテキスト情報および認証チケットを格納します。</param>
+    </member>
+    <member name="T:Owin.GoogleAuthenticationExtensions">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Google.GoogleAuthenticationMiddleware" /> を使用するための拡張メソッド</summary>
+    </member>
+    <member name="M:Owin.GoogleAuthenticationExtensions.UseGoogleAuthentication(Owin.IAppBuilder)">
+      <summary>Google OpenId を使用してユーザーを認証します</summary>
+      <returns>更新された <see cref="T:Owin.IAppBuilder" /></returns>
+      <param name="app">構成メソッドに渡される <see cref="T:Owin.IAppBuilder" /></param>
+    </member>
+    <member name="M:Owin.GoogleAuthenticationExtensions.UseGoogleAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.Google.GoogleAuthenticationOptions)">
+      <summary>Google OpenId を使用してユーザーを認証します</summary>
+      <returns>更新された <see cref="T:Owin.IAppBuilder" /></returns>
+      <param name="app">構成メソッドに渡される <see cref="T:Owin.IAppBuilder" /></param>
+      <param name="options">ミドルウェア構成オプション</param>
+    </member>
+    <member name="M:Owin.GoogleAuthenticationExtensions.UseGoogleAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.Google.GoogleOAuth2AuthenticationOptions)">
+      <summary>Google OAuth 2.0 を使用してユーザーを認証します</summary>
+      <returns>更新された <see cref="T:Owin.IAppBuilder" /></returns>
+      <param name="app">構成メソッドに渡される <see cref="T:Owin.IAppBuilder" /></param>
+      <param name="options">ミドルウェア構成オプション</param>
+    </member>
+    <member name="M:Owin.GoogleAuthenticationExtensions.UseGoogleAuthentication(Owin.IAppBuilder,System.String,System.String)">
+      <summary>Google OAuth 2.0 を使用してユーザーを認証します</summary>
+      <returns>更新された <see cref="T:Owin.IAppBuilder" /></returns>
+      <param name="app">構成メソッドに渡される <see cref="T:Owin.IAppBuilder" /></param>
+      <param name="clientId">Google によって割り当てられたクライアント ID</param>
+      <param name="clientSecret">Google によって割り当てられたクライアント シークレット</param>
+    </member>
+  </members>
+</doc>

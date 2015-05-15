@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Security</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Security.AppBuilderSecurityExtensions">
+      <summary>app.Property 値に対する拡張メソッドを提供します。認証ミドルウェアの実装で必要となります。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.AppBuilderSecurityExtensions.GetDefaultSignInAsAuthenticationType(Owin.IAppBuilder)">
+      <summary>ブラウザーをブラウザーの戻り URL にナビゲートする場合に、外部のサインイン ミドルウェアが使用する、以前設定された AuthenticationType を返します。</summary>
+      <param name="app">アプリケーション開始コードに渡されたアプリケーション ビルダー。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.AppBuilderSecurityExtensions.SetDefaultSignInAsAuthenticationType(Owin.IAppBuilder,System.String)">
+      <summary>ブラウザーをブラウザーの戻り URL にナビゲートする場合に、外部のミドルウェアが使用する AuthenticationType の名前を変更するミドルウェアによって呼び出されます。</summary>
+      <param name="app">アプリケーション開始コードに渡されたアプリケーション ビルダー。</param>
+      <param name="authenticationType">外部ミドルウェアがサインインする際に使われる AuthenticationType。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.AuthenticationMode">
+      <summary>認証ミドルウェアの動作を制御します</summary>
+    </member>
+    <member name="F:Microsoft.Owin.Security.AuthenticationMode.Active">
+      <summary>アクティブ モードでは、要求が到達すると認証ミドルウェアがユーザー ID を変更し、応答が発行されると Plain 401 も変更します。</summary>
+    </member>
+    <member name="F:Microsoft.Owin.Security.AuthenticationMode.Passive">
+      <summary>パッシブ モードでは、認証ミドルウェアは要求されたときにのみユーザー ID を提供し、追加のチャレンジ データに認証タイプが指定されている 401 応答のみが変更されます。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.AuthenticationOptions">
+      <summary>すべての認証ミドルウェアの基本オプション</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.AuthenticationOptions.#ctor(System.String)">
+      <summary>AuthenticationOptions 基本クラスのプロパティを初期化します</summary>
+      <param name="authenticationType">AuthenticationType プロパティに割り当てられています</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.AuthenticationOptions.AuthenticationMode">
+      <summary>アクティブの場合、認証ミドルウェアが受信する要求ユーザーを変更し、発行される 401 (未承認) 応答を変更します。パッシブの場合、認証ミドルウェアは ID のみを提供し、AuthenticationType によって明示的に示されたときに応答を変更します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.AuthenticationOptions.AuthenticationType">
+      <summary>オプションの AuthenticationType は ID の AuthenticationType プロパティに対応します。同じ種類の認証ミドルウェアを複数回パイプラインで使用するために、異なる値を割り当てることができます。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.AuthenticationOptions.Description">
+      <summary>アプリケーションから使用可能な、認証の種類に関する追加情報。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.AuthenticationTicket">
+      <summary>ユーザーの ID 情報や追加的な認証状態を格納します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.AuthenticationTicket.#ctor(System.Security.Claims.ClaimsIdentity,Microsoft.Owin.Security.AuthenticationProperties)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.AuthenticationTicket" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.AuthenticationTicket.Identity">
+      <summary>認証済みのユーザー ID を取得します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.AuthenticationTicket.Properties">
+      <summary>認証セッションの追加的な状態値。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.CertificateSubjectKeyIdentifierValidator">
+      <summary>証明書のサブジェクト キー識別子に基づいて、ピンで固定された証明書の検証を提供します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.CertificateSubjectKeyIdentifierValidator.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.CertificateSubjectKeyIdentifierValidator" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="validSubjectKeyIdentifiers">HTTPS 要求に対して有効なサブジェクト キー識別子のセット。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.CertificateSubjectKeyIdentifierValidator.Validate(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+      <summary>認証に使用するリモート SSL (Secure Sockets Layer) 証明書を検証します。</summary>
+      <returns>指定された証明書を認証において許可するかどうかを決定するブール値。</returns>
+      <param name="sender">この検証の状態情報を格納しているオブジェクト。</param>
+      <param name="certificate">リモートの第三者の認証に使用する証明書。</param>
+      <param name="chain">リモート証明書に関連付けられている証明機関のチェーン。</param>
+      <param name="sslPolicyErrors">リモート証明書に関連付けられている 1 つまたは複数のエラー。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.CertificateSubjectPublicKeyInfoValidator">
+      <summary>http://datatracker.ietf.org/doc/draft-ietf-websec-key-pinning/?include_text=1 に掲載されている証明書固定検証コントロールを実装します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.CertificateSubjectPublicKeyInfoValidator.#ctor(System.Collections.Generic.IEnumerable{System.String},Microsoft.Owin.Security.SubjectPublicKeyInfoAlgorithm)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.CertificateSubjectPublicKeyInfoValidator" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="validBase64EncodedSubjectPublicKeyInfoHashes">証明書の公開キー情報 BLOB の、有効な base64 でエンコードされたハッシュのコレクション。</param>
+      <param name="algorithm">ハッシュの生成に使用するアルゴリズム。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.CertificateSubjectPublicKeyInfoValidator.Validate(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+      <summary>少なくとも 1 つの SPKI ハッシュが既知であることを確認します。</summary>
+      <returns>指定された証明書を認証において許可するかどうかを決定するブール値。</returns>
+      <param name="sender">この検証の状態情報を格納しているオブジェクト。</param>
+      <param name="certificate">リモートの第三者の認証に使用する証明書。</param>
+      <param name="chain">リモート証明書に関連付けられている証明機関のチェーン。</param>
+      <param name="sslPolicyErrors">リモート証明書に関連付けられている 1 つまたは複数のエラー。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.CertificateThumbprintValidator">
+      <summary>証明書のサムプリントに基づいて、ピンで固定された証明書の検証を提供します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.CertificateThumbprintValidator.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.CertificateThumbprintValidator" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="validThumbprints">HTTPS 要求で使用できるサムプリントのセット。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.CertificateThumbprintValidator.Validate(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+      <summary>署名チェーン内の証明書サムプリントが、ホワイトリストに登録された少なくとも 1 つのサムプリントと一致していることを検証します。</summary>
+      <returns>指定された証明書を認証において許可するかどうかを決定するブール値。</returns>
+      <param name="sender">この検証の状態情報を格納しているオブジェクト。</param>
+      <param name="certificate">リモートの第三者の認証に使用する証明書。</param>
+      <param name="chain">リモート証明書に関連付けられている証明機関のチェーン。</param>
+      <param name="sslPolicyErrors">リモート証明書に関連付けられている 1 つまたは複数のエラー。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.ICertificateValidator">
+      <summary>HTTPS 通信を既知の安全な証明書の一覧に照合する、ピンで固定された証明書の検証を提供するインターフェイスです。ホスト オーナーが認識されていないホストに対して、不正であるか、認証されていない CA から証明書が発行されないようにします。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.ICertificateValidator.Validate(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+      <summary>認証に使用するリモート SSL (Secure Sockets Layer) 証明書を検証します。</summary>
+      <returns>指定された証明書を認証において許可するかどうかを決定するブール値。</returns>
+      <param name="sender">この検証の状態情報を格納しているオブジェクト。</param>
+      <param name="certificate">リモートの第三者の認証に使用する証明書。</param>
+      <param name="chain">リモート証明書に関連付けられている証明機関のチェーン。</param>
+      <param name="sslPolicyErrors">リモート証明書に関連付けられている 1 つまたは複数のエラー。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.ISecureDataFormat`1">
+      <summary>保護するデータを表します。</summary>
+      <typeparam name="TData">ジェネリック型データ。</typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.ISecureDataFormat`1.Protect(`0)">
+      <summary>書式設定できないようにデータを保護します。</summary>
+      <returns>保護するデータ。</returns>
+      <param name="data">データ。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.ISecureDataFormat`1.Unprotect(System.String)">
+      <summary>指定されたテキストのデータの暗号化を解除します。</summary>
+      <returns>暗号化を解除するデータ。</returns>
+      <param name="protectedText">保護されたテキスト。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.SubjectPublicKeyInfoAlgorithm">
+      <summary>サブジェクト公開キー情報のブロブ ハッシュの生成に使用されるアルゴリズム。</summary>
+    </member>
+    <member name="F:Microsoft.Owin.Security.SubjectPublicKeyInfoAlgorithm.Sha1">
+      <summary />
+    </member>
+    <member name="F:Microsoft.Owin.Security.SubjectPublicKeyInfoAlgorithm.Sha256">
+      <summary />
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.PropertiesDataFormat"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.PropertiesDataFormat.#ctor(Microsoft.Owin.Security.DataProtection.IDataProtector)"></member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.SecureDataFormat`1">
+      <typeparam name="TData"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.SecureDataFormat`1.#ctor(Microsoft.Owin.Security.DataHandler.Serializer.IDataSerializer{`0},Microsoft.Owin.Security.DataProtection.IDataProtector,Microsoft.Owin.Security.DataHandler.Encoder.ITextEncoder)"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.SecureDataFormat`1.Protect(`0)"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.SecureDataFormat`1.Unprotect(System.String)"></member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.TicketDataFormat"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.TicketDataFormat.#ctor(Microsoft.Owin.Security.DataProtection.IDataProtector)"></member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.Encoder.Base64TextEncoder">
+      <summary>テキスト Base64 形式エンコーダーを表します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Encoder.Base64TextEncoder.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.DataHandler.Encoder.Base64TextEncoder" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Encoder.Base64TextEncoder.Decode(System.String)">
+      <summary>指定されたテキストをデコードします。</summary>
+      <returns>デコードされたデータを表す <see cref="T:System.Byte" />。</returns>
+      <param name="text">デコードするテキスト。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Encoder.Base64TextEncoder.Encode(System.Byte[])">
+      <summary>データを Base64 形式の文字列に変換します。</summary>
+      <returns>Base64 形式に変換されたデータの文字列。</returns>
+      <param name="data">変換するデータ。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.Encoder.Base64UrlTextEncoder">
+      <summary>テキスト Base64Url 形式エンコーダーを表します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Encoder.Base64UrlTextEncoder.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.DataHandler.Encoder.Base64UrlTextEncoder" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Encoder.Base64UrlTextEncoder.Decode(System.String)">
+      <summary>指定されたテキストをデコードします。</summary>
+      <returns>デコードされたデータを表す <see cref="T:System.Byte" />。</returns>
+      <param name="text">デコードするテキスト。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Encoder.Base64UrlTextEncoder.Encode(System.Byte[])">
+      <summary>データを Base64Url 形式の文字列に変換します。</summary>
+      <returns>Base64Url 形式に変換されたデータの文字列。</returns>
+      <param name="data">変換するデータ。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.Encoder.ITextEncoder">
+      <summary>テキスト エンコーダーのインターフェイスを表します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Encoder.ITextEncoder.Decode(System.String)">
+      <summary>指定されたテキストをデコードします。</summary>
+      <returns>デコードされたデータを表す <see cref="T:System.Byte" />。</returns>
+      <param name="text">デコードするテキスト。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Encoder.ITextEncoder.Encode(System.Byte[])">
+      <summary>データを文字列に変換します。</summary>
+      <returns>変換されたデータの文字列。</returns>
+      <param name="data">変換するデータ。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.Encoder.TextEncodings">
+      <summary>テキスト エンコードを表します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.DataHandler.Encoder.TextEncodings.Base64">
+      <summary>Base64 テキスト エンコーダーを取得します。</summary>
+      <returns>Base64 テキスト エンコーダー。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.DataHandler.Encoder.TextEncodings.Base64Url">
+      <summary>Base64Url テキスト エンコーダーを取得します。</summary>
+      <returns>Base64Url テキスト エンコーダー。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.Serializer.DataSerializers">
+      <summary>データ シリアライザーを提供します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.DataHandler.Serializer.DataSerializers.Properties"></member>
+    <member name="P:Microsoft.Owin.Security.DataHandler.Serializer.DataSerializers.Ticket">
+      <summary>チケット データ シリアライザーを取得または設定します。</summary>
+      <returns>チケット データ シリアライザー。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.Serializer.IDataSerializer`1">
+      <summary>データ シリアライザーのインターフェイスを表します。</summary>
+      <typeparam name="TModel">データのモデルの種類。</typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.IDataSerializer`1.Deserialize(System.Byte[])">
+      <summary>指定したデータを逆シリアル化します。</summary>
+      <param name="data">逆シリアル化するデータ。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.IDataSerializer`1.Serialize(`0)">
+      <summary>指定されたモデルを使用してデータをシリアライズします。</summary>
+      <param name="model">データ モデル。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.Serializer.PropertiesSerializer"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.PropertiesSerializer.#ctor"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.PropertiesSerializer.Deserialize(System.Byte[])"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.PropertiesSerializer.Read(System.IO.BinaryReader)"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.PropertiesSerializer.Serialize(Microsoft.Owin.Security.AuthenticationProperties)"></member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.PropertiesSerializer.Write(System.IO.BinaryWriter,Microsoft.Owin.Security.AuthenticationProperties)"></member>
+    <member name="T:Microsoft.Owin.Security.DataHandler.Serializer.TicketSerializer">
+      <summary>チケット シリアライザーを表します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.TicketSerializer.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.DataHandler.Serializer.TicketSerializer" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.TicketSerializer.Deserialize(System.Byte[])">
+      <summary>チケット データを逆シリアル化します。</summary>
+      <returns>逆シリアル化されるデータ。</returns>
+      <param name="data">逆シリアル化するデータ。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.TicketSerializer.Read(System.IO.BinaryReader)">
+      <summary>リーダーから指定したデータを読み取ります。</summary>
+      <returns>読み取られるデータ。</returns>
+      <param name="reader">読み取り元のリーダー。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.TicketSerializer.Serialize(Microsoft.Owin.Security.AuthenticationTicket)">
+      <summary>指定されたモデルを使用してデータをシリアライズします。</summary>
+      <param name="model">データ モデル。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataHandler.Serializer.TicketSerializer.Write(System.IO.BinaryWriter,Microsoft.Owin.Security.AuthenticationTicket)">
+      <summary>指定したライターからデータを書き込みます。</summary>
+      <param name="writer">ライター。</param>
+      <param name="model">データ モデル。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataProtection.AppBuilderExtensions">
+      <summary>アプリケーション ビルダー拡張機能。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.AppBuilderExtensions.CreateDataProtector(Owin.IAppBuilder,System.String[])">
+      <summary>データ プロテクターを作成します。</summary>
+      <returns>作成された <see cref="T:Microsoft.Owin.Security.DataProtection.IDataProtector" />。</returns>
+      <param name="app">アプリケーション ビルダー。</param>
+      <param name="purposes">データ プロテクターの作成目的の一覧。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.AppBuilderExtensions.GetDataProtectionProvider(Owin.IAppBuilder)">
+      <summary>アプリケーションのデータ保護プロバイダーを取得します。</summary>
+      <returns>取得する <see cref="T:Microsoft.Owin.Security.DataProtection.IDataProtectionProvider" /> オブジェクト。</returns>
+      <param name="app">アプリケーション ビルダー。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.AppBuilderExtensions.SetDataProtectionProvider(Owin.IAppBuilder,Microsoft.Owin.Security.DataProtection.IDataProtectionProvider)">
+      <summary>データ保護プロバイダーを設定します。</summary>
+      <param name="app">アプリケーション ビルダー。</param>
+      <param name="dataProtectionProvider">設定するデータ保護プロバイダー。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider">
+      <summary>Data Protection API から派生するデータ保護サービスを提供するために使用されます。アプリケーションが ASP.NET によりホストされていなく、すべてのプロセスが同じドメイン ID として実行されている場合、データ保護が最善の選択です。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider.#ctor">
+      <summary>ランダムなアプリケーション名で新しい DpapiDataProtectionProvider を初期化します。その役割は、現在のアプリケーションの実行期間、データを保護することだけです。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider.#ctor(System.String)">
+      <summary>指定された appName を保護アルゴリズムの中で使用する新しい DpapiDataProtectionProvider を初期化します</summary>
+      <param name="appName">保護されたデータをラウンドトリップするためにユーザーが指定する必要のある値。セルフホストされたときの既定値は、IAppBuilder.Properties["owin.AppName"] から取得されます。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider.Create(System.String[])">
+      <summary>プロバイダーの IDataProtection の新しいインスタンスを返します。</summary>
+      <returns>データ保護サービスのインスタンス</returns>
+      <param name="purposes">保護されたデータが正しい目的でのみ保護解除されるようにするために使用される追加のエントロピー。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataProtection.IDataProtectionProvider">
+      <summary> IDataProtection インスタンスを作成するために使用されるファクトリ。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.IDataProtectionProvider.Create(System.String[])">
+      <summary> プロバイダーの IDataProtection の新しいインスタンスを返します。</summary>
+      <returns>データ保護サービスのインスタンス。</returns>
+      <param name="purposes">保護されたデータが正しい目的でのみ保護解除されるようにするために使用される追加のエントロピー。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.DataProtection.IDataProtector">
+      <summary> データの保護および保護解除に使用されるサービス。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.IDataProtector.Protect(System.Byte[])">
+      <summary> ユーザー データを保護するために呼び出されます。</summary>
+      <param name="userData">保護する必要がある元のデータ。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.DataProtection.IDataProtector.Unprotect(System.Byte[])">
+      <summary> ユーザー データの保護を解除するために呼び出されます。</summary>
+      <param name="protectedData">同一の IDataProtection サービスでプロテクトに対する呼び出しにより返されるバイト配列。</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler">
+      <summary> 多くの認証ミドルウェアで実行される要求別作業の基本クラス。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.ApplyResponseChallengeAsync">
+      <summary>問題の認証方式が要求フローの一部として認証操作に対処する場合、このメソッドをオーバーライドして 401 チャレンジ問題に対処します (応答ヘッダーの追加、または、ログインページまたは外部サインイン場所の 401 結果を 302 に変更するなど)。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.ApplyResponseCoreAsync">
+      <summary>ハンドラーによってオーバーライドされるコア メソッド。既定の動作では、サインイン/サインアウトの問題の対処、および 401 チャレンジの対処という 2 つの一般的な応答を呼び出します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.ApplyResponseGrantAsync">
+      <summary>問題の認証方式が、要求フローの一部として許可の付与/取消に対処する場合、このメソッドをオーバーライドして 401 チャレンジ問題に対処します (Cookie の設定/削除など)。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.AuthenticateAsync">
+      <summary>現在の要求で AuthenticateCore の認証ロジックを一度だけ実行し、結果を返します。Authenticate を 1 回以上呼び出すと、必ず元の値が返されます。AuthenticateCore を直接呼び出す代わりに、必ずこのメソッドを呼び出す必要があります。</summary>
+      <returns>認証ロジックによって提供されるチケット データです。</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.AuthenticateCoreAsync">
+      <summary>ハンドラーによって提供される必要があるコア認証ロジック。1 つの要求につき一度だけ呼び出されます。直接呼び出さないでください。代わりに、ラップする Authenticate メソッドを呼び出します。</summary>
+      <returns>認証ロジックによって提供されるチケット データです。</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.BaseInitializeAsync(Microsoft.Owin.Security.AuthenticationOptions,Microsoft.Owin.IOwinContext)"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.Context"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.GenerateCorrelationId(Microsoft.Owin.Security.AuthenticationProperties)"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.Helper"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.InitializeCoreAsync"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.InvokeAsync">
+      <summary>初期化の完了後、一般的なコードによって一度呼び出されます。認証ミドルウェアが特別な既知のパスに直接応答する場合は、この仮想メソッドをオーバーライドし、要求パスを既知のパスと比較し、必要に応じて応答の情報を提供して、それ以上の処理を停止するために true を返す必要があります。</summary>
+      <returns>false を返すと、一般的なコードが行の次のミドルウェアを呼び出します。true を返すと、一般的なコードは、残りのミドルウェア パイプラインを呼び出さずに、非同期完了プロセスを開始します。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.Request"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.RequestPathBase"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.Response"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.TeardownCoreAsync"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.ValidateCorrelationId(Microsoft.Owin.Security.AuthenticationProperties,Microsoft.Owin.Logging.ILogger)"></member>
+    <member name="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler`1">
+      <summary>多くの認証ミドルウェアで実行される要求別作業の基本クラス。</summary>
+      <typeparam name="TOptions">AuthenticationOptions プロパティの型を指定します</typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler`1.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler`1" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler`1.Options"></member>
+    <member name="T:Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1">
+      <summary>認証ミドルウェアを表します。</summary>
+      <typeparam name="TOptions">認証オプションの種類。</typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.#ctor(Microsoft.Owin.OwinMiddleware,`0)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1" /> クラスの新しいインスタンスを初期化します。</summary>
+      <param name="next">次の OWIN ミドルウェア。</param>
+      <param name="options">認証オプション。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.CreateHandler">
+      <summary>認証ハンドラーを作成します。</summary>
+      <returns>作成された <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler`1" />。</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Invoke(Microsoft.Owin.IOwinContext)"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.Options">
+      <summary>認証オプションを取得または設定します。</summary>
+      <returns>認証を完了するタスク。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.ISecureDataFormat{Microsoft.Owin.Security.AuthenticationTicket},Microsoft.Owin.Security.AuthenticationTicket)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext.SerializeTicket"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext.SetToken(System.String)"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext.Ticket"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext.Token"></member>
+    <member name="T:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.#ctor"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.Create(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.CreateAsync(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext)"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.OnCreate"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.OnCreateAsync"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.OnReceive"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.OnReceiveAsync"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.Receive(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenProvider.ReceiveAsync(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext)"></member>
+    <member name="T:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.ISecureDataFormat{Microsoft.Owin.Security.AuthenticationTicket},System.String)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext.DeserializeTicket(System.String)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext.SetTicket(Microsoft.Owin.Security.AuthenticationTicket)"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext.Ticket"></member>
+    <member name="P:Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext.Token"></member>
+    <member name="T:Microsoft.Owin.Security.Infrastructure.IAuthenticationTokenProvider"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.IAuthenticationTokenProvider.Create(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.IAuthenticationTokenProvider.CreateAsync(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenCreateContext)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.IAuthenticationTokenProvider.Receive(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.IAuthenticationTokenProvider.ReceiveAsync(Microsoft.Owin.Security.Infrastructure.AuthenticationTokenReceiveContext)"></member>
+    <member name="T:Microsoft.Owin.Security.Infrastructure.SecurityHelper">
+      <summary>認証ミドルウェアを実装する際に使用されるヘルパー コード</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.#ctor(Microsoft.Owin.IOwinContext)">
+      <summary>認証ミドルウェアを実装する際に使用されるヘルパー コード</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.AddUserIdentity(System.Security.Principal.IIdentity)">
+      <summary>"server.User" 環境キーの ClaimsPrincipal に追加の ClaimsIdentity を追加します</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.Equals(Microsoft.Owin.Security.Infrastructure.SecurityHelper)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.Equals(System.Object)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.GetHashCode"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.LookupChallenge(System.String,Microsoft.Owin.Security.AuthenticationMode)">
+      <summary>特定の認証ミドルウェアのチャレンジ応答の詳細を検索します</summary>
+      <returns>ミドルウェアの動作を指示する情報</returns>
+      <param name="authenticationType">検索する認証の種類</param>
+      <param name="authenticationMode">ミドルウェアが実行される際の認証モード</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.LookupSignIn(System.String)">
+      <summary>特定の認証ミドルウェアの応答サインインの詳細を検索します</summary>
+      <returns>ミドルウェアの動作を指示する情報</returns>
+      <param name="authenticationType">検索する認証の種類</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.LookupSignOut(System.String,Microsoft.Owin.Security.AuthenticationMode)">
+      <summary>特定の認証ミドルウェアの応答サインアウトの詳細を検索します</summary>
+      <returns>ミドルウェアの動作を指示する情報</returns>
+      <param name="authenticationType">検索する認証の種類</param>
+      <param name="authenticationMode">ミドルウェアが実行される際の認証モード</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.op_Equality(Microsoft.Owin.Security.Infrastructure.SecurityHelper,Microsoft.Owin.Security.Infrastructure.SecurityHelper)"></member>
+    <member name="M:Microsoft.Owin.Security.Infrastructure.SecurityHelper.op_Inequality(Microsoft.Owin.Security.Infrastructure.SecurityHelper,Microsoft.Owin.Security.Infrastructure.SecurityHelper)"></member>
+    <member name="T:Microsoft.Owin.Security.Notifications.AuthenticationFailedNotification`2">
+      <typeparam name="TMessage"></typeparam>
+      <typeparam name="TOptions"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Notifications.AuthenticationFailedNotification`2.#ctor(Microsoft.Owin.IOwinContext,`1)"></member>
+    <member name="P:Microsoft.Owin.Security.Notifications.AuthenticationFailedNotification`2.Exception"></member>
+    <member name="P:Microsoft.Owin.Security.Notifications.AuthenticationFailedNotification`2.ProtocolMessage"></member>
+    <member name="T:Microsoft.Owin.Security.Notifications.BaseNotification`1">
+      <typeparam name="TOptions"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Notifications.BaseNotification`1.#ctor(Microsoft.Owin.IOwinContext,`0)"></member>
+    <member name="P:Microsoft.Owin.Security.Notifications.BaseNotification`1.HandledResponse"></member>
+    <member name="M:Microsoft.Owin.Security.Notifications.BaseNotification`1.HandleResponse">
+      <summary>この要求のすべての処理を中止し、クライアントに返します。完全な応答を生成する作業は、呼び出し元で行う必要があります。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Notifications.BaseNotification`1.Skipped"></member>
+    <member name="M:Microsoft.Owin.Security.Notifications.BaseNotification`1.SkipToNextMiddleware">
+      <summary>現在のミドルウェアでの要求の処理を中止し、次のミドルウェアに制御を渡します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Notifications.BaseNotification`1.State"></member>
+    <member name="T:Microsoft.Owin.Security.Notifications.MessageReceivedNotification`2">
+      <typeparam name="TMessage"></typeparam>
+      <typeparam name="TOptions"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Notifications.MessageReceivedNotification`2.#ctor(Microsoft.Owin.IOwinContext,`1)"></member>
+    <member name="P:Microsoft.Owin.Security.Notifications.MessageReceivedNotification`2.ProtocolMessage"></member>
+    <member name="T:Microsoft.Owin.Security.Notifications.NotificationResultState"></member>
+    <member name="F:Microsoft.Owin.Security.Notifications.NotificationResultState.Continue">
+      <summary>通常の処理を続行します。</summary>
+    </member>
+    <member name="F:Microsoft.Owin.Security.Notifications.NotificationResultState.HandledResponse">
+      <summary>この要求のすべての処理を中止します。</summary>
+    </member>
+    <member name="F:Microsoft.Owin.Security.Notifications.NotificationResultState.Skipped">
+      <summary>現在のミドルウェアでの要求の処理を中止し、次のミドルウェアに制御を渡します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Notifications.RedirectToIdentityProviderNotification`2">
+      <typeparam name="TMessage"></typeparam>
+      <typeparam name="TOptions"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Notifications.RedirectToIdentityProviderNotification`2.#ctor(Microsoft.Owin.IOwinContext,`1)"></member>
+    <member name="P:Microsoft.Owin.Security.Notifications.RedirectToIdentityProviderNotification`2.HandledResponse"></member>
+    <member name="M:Microsoft.Owin.Security.Notifications.RedirectToIdentityProviderNotification`2.HandleResponse">
+      <summary>この要求のすべての処理を中止し、クライアントに返します。完全な応答を生成する作業は、呼び出し元で行う必要があります。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Notifications.RedirectToIdentityProviderNotification`2.ProtocolMessage"></member>
+    <member name="P:Microsoft.Owin.Security.Notifications.RedirectToIdentityProviderNotification`2.State"></member>
+    <member name="T:Microsoft.Owin.Security.Notifications.SecurityTokenReceivedNotification`2">
+      <typeparam name="TMessage"></typeparam>
+      <typeparam name="TOptions"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Notifications.SecurityTokenReceivedNotification`2.#ctor(Microsoft.Owin.IOwinContext,`1)"></member>
+    <member name="P:Microsoft.Owin.Security.Notifications.SecurityTokenReceivedNotification`2.ProtocolMessage"></member>
+    <member name="T:Microsoft.Owin.Security.Notifications.SecurityTokenValidatedNotification`2">
+      <typeparam name="TMessage"></typeparam>
+      <typeparam name="TOptions"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Notifications.SecurityTokenValidatedNotification`2.#ctor(Microsoft.Owin.IOwinContext,`1)"></member>
+    <member name="P:Microsoft.Owin.Security.Notifications.SecurityTokenValidatedNotification`2.AuthenticationTicket">
+      <summary>
+        <see cref="P:Microsoft.Owin.Security.Notifications.SecurityTokenValidatedNotification`2.AuthenticationTicket" /> を取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Notifications.SecurityTokenValidatedNotification`2.ProtocolMessage">
+      <summary>Protocol メッセージを取得または設定します</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Provider.BaseContext">
+      <summary>基本コンテキストを表します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Provider.BaseContext.#ctor(Microsoft.Owin.IOwinContext)"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.BaseContext.OwinContext"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.BaseContext.Request"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.BaseContext.Response"></member>
+    <member name="T:Microsoft.Owin.Security.Provider.BaseContext`1">
+      <summary>特定のイベント コンテキストに使用される基本クラス</summary>
+      <typeparam name="TOptions"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Provider.BaseContext`1.#ctor(Microsoft.Owin.IOwinContext,`0)"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.BaseContext`1.Options"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.BaseContext`1.OwinContext"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.BaseContext`1.Request"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.BaseContext`1.Response"></member>
+    <member name="T:Microsoft.Owin.Security.Provider.EndpointContext">
+      <summary>エンドポイント コンテキストを表します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Provider.EndpointContext.#ctor(Microsoft.Owin.IOwinContext)"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.EndpointContext.IsRequestCompleted">
+      <summary>このコンテキストの要求が完了しているかどうかを示す値を取得または設定します。</summary>
+      <returns>このコンテキストの要求が完了している場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Provider.EndpointContext.RequestCompleted">
+      <summary>このコンテキストの完了した要求を示します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Provider.EndpointContext`1">
+      <summary>特定のイベント コンテキストに使用される基本クラス</summary>
+      <typeparam name="TOptions"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Provider.EndpointContext`1.#ctor(Microsoft.Owin.IOwinContext,`0)">
+      <summary>このコンテキストのインスタンスを作成します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Provider.EndpointContext`1.IsRequestCompleted">
+      <summary>要求が他のコンポーネントによってこれ以上処理される必要がない場合は true。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Provider.EndpointContext`1.RequestCompleted">
+      <summary>要求が他のコンポーネントによってこれ以上処理されないようにします。呼び出し後、IsRequestCompleted は true になります。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Provider.ReturnEndpointContext">
+      <summary>戻りエンドポイント コンテキストを表します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Provider.ReturnEndpointContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket)"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.ReturnEndpointContext.Identity">
+      <summary>このコンテキストの ID を取得または設定します。</summary>
+      <returns>このコンテキストの ID。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Provider.ReturnEndpointContext.Properties"></member>
+    <member name="P:Microsoft.Owin.Security.Provider.ReturnEndpointContext.RedirectUri">
+      <summary>このコンテキストを返すときに使用すべき URI を取得または設定します。</summary>
+      <returns>このコンテキストを返すときに使用すべき URI。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Provider.ReturnEndpointContext.SignInAsAuthenticationType">
+      <summary>認証の種類としてサインインするコンテキストを取得または設定します。</summary>
+      <returns>認証の種類としてサインインするコンテキスト。</returns>
+    </member>
+  </members>
+</doc>

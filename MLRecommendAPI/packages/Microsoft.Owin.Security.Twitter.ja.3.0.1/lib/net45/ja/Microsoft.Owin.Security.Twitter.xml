@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Security.Twitter</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider">
+      <summary>開発者による認証プロセスの制御を有効にするために <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware" /> が呼び出すコールバック メソッドを指定します。/&amp;amp;gt;</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext)">
+      <summary>Twitter ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext)">
+      <summary>Twitter がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Twitter.TwitterReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext">
+      <summary>Twitter ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に渡されるコンテキスト</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions,Microsoft.Owin.Security.AuthenticationProperties,System.String)">
+      <summary>新しいコンテキスト オブジェクトを作成します。</summary>
+      <param name="context">OWIN 要求コンテキスト</param>
+      <param name="options">Facebook ミドルウェアのオプション</param>
+      <param name="properties">チャレンジの認証プロパティ</param>
+      <param name="redirectUri">初期リダイレクト URI</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext.Properties">
+      <summary>チャレンジの認証プロパティを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext.RedirectUri">
+      <summary>リダイレクト操作に使用される URI を取得します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext">
+      <summary>ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext.#ctor(Microsoft.Owin.IOwinContext,System.String,System.String,System.String,System.String)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext" /> を初期化します</summary>
+      <param name="context">OWIN 環境</param>
+      <param name="userId">Twitter のユーザー ID</param>
+      <param name="screenName">Twitter のスクリーン ネーム</param>
+      <param name="accessToken">Twitter のアクセス トークン</param>
+      <param name="accessTokenSecret">Twitter のアクセス トークン シークレット</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext.AccessToken">
+      <summary>Twitter のアクセス トークンを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext.AccessTokenSecret">
+      <summary>Twitter のアクセス トークン シークレットを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext.Identity">
+      <summary>ユーザーを表す <see cref="T:System.Security.Claims.ClaimsIdentity" /> を取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext.Properties">
+      <summary>共通の認証プロパティのプロパティ バッグを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext.ScreenName">
+      <summary>Twitter のスクリーン ネームを取得します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext.UserId">
+      <summary>Twitter のユーザー ID を取得します</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware">
+      <summary>Twitter を使用してユーザーを認証するための OWIN ミドルウェア</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,Owin.IAppBuilder,Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions)">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware" /> を初期化します</summary>
+      <param name="next">OWIN パイプライン内で次に呼び出すミドルウェア</param>
+      <param name="app">OWIN アプリケーション</param>
+      <param name="options">ミドルウェアの構成オプション</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware.CreateHandler">
+      <summary>認証関連要求を処理するための <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" /> オブジェクトを提供します。</summary>
+      <returns>コンストラクターに指定された <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions" /> で構成された <see cref="T:Microsoft.Owin.Security.Infrastructure.AuthenticationHandler" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions">
+      <summary>Twitter 認証ミドルウェアのオプション。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.BackchannelCertificateValidator">
+      <summary>Twitter に属するバック チャネル通信で使用されるエンドポイントの検証に使用する、固定された証明書検証コントロールを取得または設定します。</summary>
+      <returns>固定された証明書検証コントロール。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.BackchannelHttpHandler">
+      <summary>Twitter との通信に使用される HttpMessageHandler。値を WebRequestHandler にダウンキャストできない場合、これを BackchannelCertificateValidator と同時に設定することはできません。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.BackchannelTimeout">
+      <summary>Twitter とのバック チャネル通信のタイムアウト値をミリ秒で取得または設定します。</summary>
+      <returns>バック チャネルのタイムアウト。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.CallbackPath">
+      <summary>ユーザー エージェントが返される、アプリケーションの基本パス内の要求パス。この要求が到着するとミドルウェアが処理します。既定値は "/signin-twitter" です。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.Caption">
+      <summary>ユーザーがサインイン ユーザー インターフェイスに表示できるテキストを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.ConsumerKey">
+      <summary>Twitter との通信に使用されるコンシューマー キーを取得または設定します。</summary>
+      <returns>Twitter との通信に使用されるコンシューマー キー。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.ConsumerSecret">
+      <summary>Twitter への要求の署名に使用されるコンシューマー シークレットを取得または設定します。</summary>
+      <returns>Twitter への要求の署名に使用されるコンシューマー シークレット。</returns>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.Provider">
+      <summary>認証イベントの処理に使用される <see cref="T:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider" /> を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.SignInAsAuthenticationType">
+      <summary>実際にユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> を発行する別の認証ミドルウェアの名前を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions.StateDataFormat">
+      <summary>ミドルウェアによって処理されるデータの保護に使用される種類を取得または設定します。</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider">
+      <summary>既定の <see cref="T:Microsoft.Owin.Security.Twitter.ITwitterAuthenticationProvider" /> の実装。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.#ctor">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider" /> を初期化します</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.ApplyRedirect(Microsoft.Owin.Security.Twitter.TwitterApplyRedirectContext)">
+      <summary>Twitter ミドルウェア内でエンドポイントを承認するための Challenge でリダイレクトを行う際に呼び出されます</summary>
+      <param name="context">チャレンジのリダイレクト URI と <see cref="T:Microsoft.Owin.Security.AuthenticationProperties" /> を格納します</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.Authenticated(Microsoft.Owin.Security.Twitter.TwitterAuthenticatedContext)">
+      <summary>Twitter がユーザーの認証に成功した場合に呼び出されます</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+      <param name="context">ログイン セッションとユーザーの <see cref="T:System.Security.Claims.ClaimsIdentity" /> に関する情報を格納します。</param>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.OnApplyRedirect">
+      <summary>ApplyRedirect メソッドの呼び出し時に呼び出されるデリゲートを取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.OnAuthenticated">
+      <summary>Authenticated メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.OnReturnEndpoint">
+      <summary>ReturnEndpoint メソッドの呼び出し時に呼び出される関数を取得または設定します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterAuthenticationProvider.ReturnEndpoint(Microsoft.Owin.Security.Twitter.TwitterReturnEndpointContext)">
+      <summary>
+        <see cref="T:System.Security.Claims.ClaimsIdentity" /> をローカル Cookie に保存し、最初に要求された URL にブラウザーをリダイレクトする前に呼び出されます。</summary>
+      <returns>完了した操作を表す <see cref="T:System.Threading.Tasks.Task" />。</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.TwitterReturnEndpointContext">
+      <summary>コンテキスト情報をミドルウェア プロバイダーに提供します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.TwitterReturnEndpointContext.#ctor(Microsoft.Owin.IOwinContext,Microsoft.Owin.Security.AuthenticationTicket)">
+      <summary>新しい <see cref="T:Microsoft.Owin.Security.Twitter.TwitterReturnEndpointContext" /> を初期化します。</summary>
+      <param name="context">OWIN 環境</param>
+      <param name="ticket">認証チケット</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.Messages.AccessToken">
+      <summary>Twitter のアクセス トークン</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.Messages.AccessToken.#ctor"></member>
+    <member name="P:Microsoft.Owin.Security.Twitter.Messages.AccessToken.ScreenName">
+      <summary>Twitter のスクリーン ネームを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.Messages.AccessToken.UserId">
+      <summary>Twitter のユーザー ID を取得または設定します</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.Messages.RequestToken">
+      <summary>Twitter の要求トークン</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.Messages.RequestToken.#ctor"></member>
+    <member name="P:Microsoft.Owin.Security.Twitter.Messages.RequestToken.CallbackConfirmed"></member>
+    <member name="P:Microsoft.Owin.Security.Twitter.Messages.RequestToken.Properties">
+      <summary>共通の認証プロパティのプロパティ バッグを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.Messages.RequestToken.Token">
+      <summary>Twitter のトークンを取得または設定します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.Messages.RequestToken.TokenSecret">
+      <summary>Twitter のトークン シークレットを取得または設定します</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer">
+      <summary>Twitter の要求とアクセス トークンを他のアプリケーション コンポーネントで使用できるようにシリアル化および逆シリアル化します。</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer.#ctor"></member>
+    <member name="M:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer.Deserialize(System.Byte[])">
+      <summary>要求トークンを逆シリアル化します</summary>
+      <returns>Twitter の要求トークン</returns>
+      <param name="data">シリアル化したトークンを格納するバイト配列</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer.Read(System.IO.BinaryReader)">
+      <summary>一連のバイトから Twitter の要求トークンを読み取ります。<see cref="M:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer.Deserialize(System.Byte[])" /> メソッドによって使用されます。</summary>
+      <returns>トークン</returns>
+      <param name="reader">トークンのバイトの読み取りに使用するリーダー</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer.Serialize(Microsoft.Owin.Security.Twitter.Messages.RequestToken)">
+      <summary>要求トークンをシリアル化します</summary>
+      <returns>シリアル化したトークンを格納するバイト配列</returns>
+      <param name="model">シリアル化するトークン</param>
+    </member>
+    <member name="M:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer.Write(System.IO.BinaryWriter,Microsoft.Owin.Security.Twitter.Messages.RequestToken)">
+      <summary>Twitter の要求トークンを一連のバイトとして書き込みます。<see cref="M:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer.Serialize(Microsoft.Owin.Security.Twitter.Messages.RequestToken)" /> メソッドによって使用されます。</summary>
+      <param name="writer">トークンの書き込みに使用するライター</param>
+      <param name="token">書き込むトークン</param>
+    </member>
+    <member name="T:Microsoft.Owin.Security.Twitter.Messages.Serializers">
+      <summary>要求トークン シリアライザーへのアクセスを提供します</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Security.Twitter.Messages.Serializers.RequestToken">
+      <summary>静的に使用可能なシリアライザー オブジェクトを取得または設定します。このプロパティの値は既定で <see cref="T:Microsoft.Owin.Security.Twitter.Messages.RequestTokenSerializer" /> です。</summary>
+    </member>
+    <member name="T:Owin.TwitterAuthenticationExtensions">
+      <summary>
+        <see cref="T:Microsoft.Owin.Security.Twitter.TwitterAuthenticationMiddleware" /> を使用するための拡張メソッド</summary>
+    </member>
+    <member name="M:Owin.TwitterAuthenticationExtensions.UseTwitterAuthentication(Owin.IAppBuilder,Microsoft.Owin.Security.Twitter.TwitterAuthenticationOptions)">
+      <summary>Twitter でユーザーを認証します</summary>
+      <returns>更新された <see cref="T:Owin.IAppBuilder" /></returns>
+      <param name="app">構成メソッドに渡される <see cref="T:Owin.IAppBuilder" /></param>
+      <param name="options">ミドルウェア構成オプション</param>
+    </member>
+    <member name="M:Owin.TwitterAuthenticationExtensions.UseTwitterAuthentication(Owin.IAppBuilder,System.String,System.String)">
+      <summary>Twitter でユーザーを認証します</summary>
+      <returns>更新された <see cref="T:Owin.IAppBuilder" /></returns>
+      <param name="app">構成メソッドに渡される <see cref="T:Owin.IAppBuilder" /></param>
+      <param name="consumerKey">Twitter で発行されたコンシューマー キー</param>
+      <param name="consumerSecret">Twitter で発行されたコンシューマー シークレット</param>
+    </member>
+  </members>
+</doc>

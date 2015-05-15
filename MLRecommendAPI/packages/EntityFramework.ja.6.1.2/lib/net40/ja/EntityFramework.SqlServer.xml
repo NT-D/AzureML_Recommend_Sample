@@ -1,0 +1,2014 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>EntityFramework.SqlServer</name>
+  </assembly>
+  <members>
+    <member name="T:System.Data.Entity.SqlServer.SqlAzureExecutionStrategy">
+      <summary>SQL Azure の一時的なエラーによって発生した例外をスローするアクションを再試行する <see cref="T:System.Data.Entity.Infrastructure.IDbExecutionStrategy" />。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlAzureExecutionStrategy.#ctor">
+      <summary>
+        <see cref="T:System.Data.Entity.SqlServer.SqlAzureExecutionStrategy" /> の新しいインスタンスを作成します。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlAzureExecutionStrategy.#ctor(System.Int32,System.TimeSpan)">
+      <summary>指定された再試行制限回数と再試行の間隔を使用して、<see cref="T:System.Data.Entity.SqlServer.SqlAzureExecutionStrategy" /> の新しいインスタンスを作成します。</summary>
+      <param name="maxRetryCount">再試行の最大回数。</param>
+      <param name="maxDelay">再試行の最大間隔 (ミリ秒単位)。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlAzureExecutionStrategy.ShouldRetryOn(System.Exception)">
+      <summary>指定した例外で再試行するかどうかを判断します。</summary>
+      <returns>指定した例外で再試行する場合は true。それ以外の場合は false。</returns>
+      <param name="exception">再試行の契機となる例外。</param>
+    </member>
+    <member name="T:System.Data.Entity.SqlServer.SqlFunctions">
+      <summary>Linq to Entities 内の SqlServer メソッドを公開する関数スタブが含まれています。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Acos(System.Nullable{System.Decimal})">
+      <summary>コサインが指定の数値となる角度 (ラジアン単位) を返す数学関数。この角度をアークコサインといいます。</summary>
+      <returns>ラジアンで計測した角度。</returns>
+      <param name="arg1">角度のコサイン。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Acos(System.Nullable{System.Double})">
+      <summary>コサインが指定の数値となる角度 (ラジアン単位) を返す数学関数。この角度をアークコサインといいます。</summary>
+      <returns>入力されたコサイン値によって定義される角度 (ラジアン単位)。</returns>
+      <param name="arg1">角度のコサイン。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Ascii(System.String)">
+      <summary>文字式の左端の文字の ASCII コード値を返します。</summary>
+      <returns>入力文字列の最初の文字の ASCII コード。</returns>
+      <param name="arg">有効な文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Asin(System.Nullable{System.Decimal})">
+      <summary>サインが指定の数値となる角度 (ラジアン単位) を返す数学関数。この角度をアークサインといいます。</summary>
+      <returns>ラジアンで計測した角度。</returns>
+      <param name="arg">角度のサイン。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Asin(System.Nullable{System.Double})">
+      <summary>サインが指定の数値となる角度 (ラジアン単位) を返す数学関数。この角度をアークサインといいます。</summary>
+      <returns>ラジアンで計測した角度。</returns>
+      <param name="arg">角度のサイン。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Atan(System.Nullable{System.Decimal})">
+      <summary>タンジェントが指定の数値となる角度 (ラジアン単位) を返す数学関数。この角度をアークタンジェントといいます。</summary>
+      <returns>ラジアンで計測した角度。</returns>
+      <param name="arg">角度のタンジェント。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Atan(System.Nullable{System.Double})">
+      <summary>タンジェントが指定の数値となる角度 (ラジアン単位) を返す数学関数。この角度をアークタンジェントといいます。</summary>
+      <returns>ラジアンで計測した角度。</returns>
+      <param name="arg">角度のタンジェント。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Atan2(System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+      <summary>正の x 軸と、原点から x と y の 2 つの数値で指定された点 (x, y) に向かって延びる斜線との正の角度 (ラジアン単位) を返します。関数に渡す 1 つ目のパラメーターは y 値で、2 つ目のパラメーターは x 値です。</summary>
+      <returns>ラジアンで計測した角度。</returns>
+      <param name="arg1">点の y 座標。</param>
+      <param name="arg2">点の x 座標。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Atan2(System.Nullable{System.Double},System.Nullable{System.Double})">
+      <summary>正の x 軸と、原点から x と y の 2 つの数値で指定された点 (x, y) に向かって延びる斜線との正の角度 (ラジアン単位) を返します。関数に渡す 1 つ目のパラメーターは y 値で、2 つ目のパラメーターは x 値です。</summary>
+      <returns>ラジアンで計測した角度。</returns>
+      <param name="arg1">点の y 座標。</param>
+      <param name="arg2">点の x 座標。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Char(System.Nullable{System.Int32})">
+      <summary>指定された整数 ASCII 値に対応する文字を返します。</summary>
+      <returns>指定された ASCII 値に対応する文字。</returns>
+      <param name="arg">ASCII コード。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.CharIndex(System.Byte[],System.Byte[])">
+      <summary>ある式を別の式から探し、見つかった式の開始位置を返します。</summary>
+      <returns>toSearch に見つかった場合は target の開始位置。</returns>
+      <param name="toSearch">検索範囲となる文字列式。</param>
+      <param name="target">検索する文字列式。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.CharIndex(System.Byte[],System.Byte[],System.Nullable{System.Int32})">
+      <summary>ある式を別の式から探し、見つかった式の開始位置を返します。</summary>
+      <returns>toSearch に見つかった場合は target の開始位置。</returns>
+      <param name="toSearch">検索範囲となる文字列式。</param>
+      <param name="target">検索する文字列式。</param>
+      <param name="startLocation">toSearch 内の検索開始文字位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.CharIndex(System.Byte[],System.Byte[],System.Nullable{System.Int64})">
+      <summary>ある式を別の式から探し、見つかった式の開始位置を返します。</summary>
+      <returns>toSearch に見つかった場合は target の開始位置。</returns>
+      <param name="toSearch">検索範囲となる文字列式。</param>
+      <param name="target">検索する文字列式。</param>
+      <param name="startLocation">toSearch 内の検索開始文字位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.CharIndex(System.String,System.String)">
+      <summary>ある式を別の式から探し、見つかった式の開始位置を返します。</summary>
+      <returns>toSearch に見つかった場合は target の開始位置。</returns>
+      <param name="toSearch">検索範囲となる文字列式。</param>
+      <param name="target">検索する文字列式。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.CharIndex(System.String,System.String,System.Nullable{System.Int32})">
+      <summary>ある式を別の式から探し、見つかった式の開始位置を返します。</summary>
+      <returns>toSearch に見つかった場合は target の開始位置。</returns>
+      <param name="toSearch">検索範囲となる文字列式。</param>
+      <param name="target">検索する文字列式。</param>
+      <param name="startLocation">toSearch 内の検索開始文字位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.CharIndex(System.String,System.String,System.Nullable{System.Int64})">
+      <summary>ある式を別の式から探し、見つかった式の開始位置を返します。</summary>
+      <returns>toSearch に見つかった場合は target の開始位置を表す <see cref="T:System.Int64" /> 値の <see cref="T:System.Nullable`1" />。</returns>
+      <param name="toSearch">検索範囲となる文字列式。</param>
+      <param name="target">検索する文字列式。</param>
+      <param name="startLocation">toSearch 内の検索開始文字位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Byte[])">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる文字配列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Byte[],System.Byte[])">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる文字配列。</param>
+      <param name="arg2">チェックサムの計算対象となる文字配列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Byte[],System.Byte[],System.Byte[])">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる文字配列。</param>
+      <param name="arg2">チェックサムの計算対象となる文字配列。</param>
+      <param name="arg3">チェックサムの計算対象となる文字配列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Boolean})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+      <param name="arg3">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.DateTime})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+      <param name="arg3">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.DateTimeOffset})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+      <param name="arg3">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Decimal})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+      <param name="arg3">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Double})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Double},System.Nullable{System.Double})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+      <param name="arg3">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Guid})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Guid},System.Nullable{System.Guid})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+      <param name="arg3">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.TimeSpan})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+      <param name="arg3">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.String)">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.String,System.String)">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Checksum(System.String,System.String,System.String)">
+      <summary>入力された引数について計算されたチェックサム値を返します。</summary>
+      <returns>入力された値について計算されたチェックサム。</returns>
+      <param name="arg1">チェックサムの計算対象となる値。</param>
+      <param name="arg2">チェックサムの計算対象となる値。</param>
+      <param name="arg3">チェックサムの計算対象となる値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.ChecksumAggregate(System.Collections.Generic.IEnumerable{System.Int32})">
+      <summary>コレクション内にある値のチェックサムを返します。null 値は無視されます。</summary>
+      <returns>入力されたコレクションから計算されたチェックサム。</returns>
+      <param name="arg">チェックサムの計算対象となる値のコレクション。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.ChecksumAggregate(System.Collections.Generic.IEnumerable{System.Nullable{System.Int32}})">
+      <summary>コレクション内にある値のチェックサムを返します。null 値は無視されます。</summary>
+      <returns>入力されたコレクションから計算されたチェックサム。</returns>
+      <param name="arg">チェックサムの計算対象となる値のコレクション。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Cos(System.Nullable{System.Decimal})">
+      <summary>指定された式のラジアンで指定された角度の三角関数コサインを返します。</summary>
+      <returns>指定された角度の三角関数コサイン。</returns>
+      <param name="arg">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Cos(System.Nullable{System.Double})">
+      <summary>指定された式のラジアンで指定された角度の三角関数コサインを返します。</summary>
+      <returns>指定された角度の三角関数コサイン。</returns>
+      <param name="arg">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Cot(System.Nullable{System.Decimal})">
+      <summary>ラジアンで指定された角度の三角関数コタンジェントを返す数学関数。</summary>
+      <returns>指定された角度の三角関数コタンジェント。</returns>
+      <param name="arg">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Cot(System.Nullable{System.Double})">
+      <summary>ラジアンで指定された角度の三角関数コタンジェントを返す数学関数。</summary>
+      <returns>指定された角度の三角関数コタンジェント。</returns>
+      <param name="arg">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.CurrentTimestamp">
+      <summary>現在の日付と時刻を返します。</summary>
+      <returns>現在の日付と時刻。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.CurrentUser">
+      <summary>現在のユーザーの名前を返します。</summary>
+      <returns>現在のユーザーの名前。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.Byte[])">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.Nullable{System.Boolean})">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">データの長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.Nullable{System.DateTime})">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">データの長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.Nullable{System.DateTimeOffset})">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">データの長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.Nullable{System.Decimal})">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">データの長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.Nullable{System.Double})">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">データの長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.Nullable{System.Guid})">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">データの長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.Nullable{System.TimeSpan})">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">データの長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DataLength(System.String)">
+      <summary>式を表すために必要なバイト数を返します。</summary>
+      <returns>入力された値のバイト数。</returns>
+      <param name="arg">データの長さの調査対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateAdd(System.String,System.Nullable{System.Double},System.Nullable{System.DateTime})">
+      <summary>指定された日付に特定の期間を加えた新しい日付時刻値を返します。</summary>
+      <returns>新しい日付。</returns>
+      <param name="datePartArg">日付の構成要素のうちインクリメントする部分。</param>
+      <param name="number">日付を指定の量インクリメントするために使用する値。</param>
+      <param name="date">インクリメントする日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateAdd(System.String,System.Nullable{System.Double},System.Nullable{System.DateTimeOffset})">
+      <summary>指定された日付に特定の期間を加えた新しい日付値を返します。</summary>
+      <returns>新しい時点。世界協定時刻 (UTC) を基準とする相対的な日時として表されます。</returns>
+      <param name="datePartArg">日付の構成要素のうちインクリメントする部分。</param>
+      <param name="number">日付を指定の量インクリメントするために使用する値。</param>
+      <param name="dateTimeOffsetArg">インクリメントする日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateAdd(System.String,System.Nullable{System.Double},System.Nullable{System.TimeSpan})">
+      <summary>指定された期間に特定の期間を加えた新しい期間を返します。</summary>
+      <returns>新しい期間。</returns>
+      <param name="datePartArg">日付の構成要素のうちインクリメントする部分。</param>
+      <param name="number">日付を指定の量インクリメントするために使用する値。</param>
+      <param name="time">インクリメントする期間。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateAdd(System.String,System.Nullable{System.Double},System.String)">
+      <summary>指定された日付に特定の期間を加えた新しい日付時刻値を返します。</summary>
+      <returns>新しい日付を表す <see cref="T:System.DateTime" /> 値の <see cref="T:System.Nullable`1" />。</returns>
+      <param name="datePartArg">日付の構成要素のうちインクリメントする部分。</param>
+      <param name="number">日付を指定の量インクリメントするために使用する値。</param>
+      <param name="date">インクリメントする日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTimeOffset})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.DateTime},System.Nullable{System.TimeSpan})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.DateTime},System.String)">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTime})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.TimeSpan})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.DateTimeOffset},System.String)">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.TimeSpan},System.Nullable{System.DateTime})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.TimeSpan},System.Nullable{System.DateTimeOffset})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.Nullable{System.TimeSpan},System.String)">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.String,System.Nullable{System.DateTime})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.String,System.Nullable{System.DateTimeOffset})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.String,System.Nullable{System.TimeSpan})">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔数を示す値。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateDiff(System.String,System.String,System.String)">
+      <summary>指定された開始日から終了日までの間隔を、指定された日付構成要素の単位で返します。</summary>
+      <returns>2 つの日付の間に含まれる時間間隔の数。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="startDate">1 つ目の日付。</param>
+      <param name="endDate">2 つ目の日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateName(System.String,System.Nullable{System.DateTime})">
+      <summary>指定された日付の特定の日付構成要素を表す文字列を返します。</summary>
+      <returns>指定された日付の特定の日付構成要素。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="date">日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateName(System.String,System.Nullable{System.DateTimeOffset})">
+      <summary>指定された日付の特定の日付構成要素を表す文字列を返します。</summary>
+      <returns>指定された日付の特定の日付構成要素。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="date">日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateName(System.String,System.Nullable{System.TimeSpan})">
+      <summary>指定された日付の特定の日付構成要素を表す文字列を返します。</summary>
+      <returns>指定された日付の特定の日付構成要素。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="date">日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DateName(System.String,System.String)">
+      <summary>指定された日付の特定の日付構成要素を表す文字列を返します。</summary>
+      <returns>指定された日付の特定の日付構成要素。</returns>
+      <param name="datePartArg">時間間隔数の差を計算する日付構成要素。</param>
+      <param name="date">日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DatePart(System.String,System.Nullable{System.DateTime})">
+      <summary>指定された日付について、特定の日付要素を整数で返します。</summary>
+      <returns>指定された日付の特定の日付構成要素。</returns>
+      <param name="datePartArg">日付の構成要素のうち値の取得対象となる部分。</param>
+      <param name="date">日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DatePart(System.String,System.Nullable{System.DateTimeOffset})">
+      <summary>指定された日付について、特定の日付要素を整数で返します。</summary>
+      <returns>指定された日付の特定の日付構成要素。</returns>
+      <param name="datePartArg">日付の構成要素のうち値の取得対象となる部分。</param>
+      <param name="date">日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DatePart(System.String,System.Nullable{System.TimeSpan})">
+      <summary>指定された日付について、特定の日付要素を整数で返します。</summary>
+      <returns>指定された日付の特定の日付構成要素。</returns>
+      <param name="datePartArg">日付の構成要素のうち値の取得対象となる部分。</param>
+      <param name="date">日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.DatePart(System.String,System.String)">
+      <summary>指定された日付について、特定の日付要素を整数で返します。</summary>
+      <returns>指定された日付の特定の日付構成要素。</returns>
+      <param name="datePartArg">日付の構成要素のうち値の取得対象となる部分。</param>
+      <param name="date">日付。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Degrees(System.Nullable{System.Decimal})">
+      <summary>ラジアンで指定された角度に対応する度数法の角度を返します。</summary>
+      <returns>変換後の角度。</returns>
+      <param name="arg1">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Degrees(System.Nullable{System.Double})">
+      <summary>ラジアンで指定された角度に対応する度数法の角度を返します。</summary>
+      <returns>変換後の角度。</returns>
+      <param name="arg1">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Degrees(System.Nullable{System.Int32})">
+      <summary>ラジアンで指定された角度に対応する度数法の角度を返します。</summary>
+      <returns>変換後の角度。</returns>
+      <param name="arg1">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Degrees(System.Nullable{System.Int64})">
+      <summary>ラジアンで指定された角度に対応する度数法の角度を返します。</summary>
+      <returns>変換後の角度。</returns>
+      <param name="arg1">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Difference(System.String,System.String)">
+      <summary>2 つの文字式の SOUNDEX 値の差を表す整数値を返します。</summary>
+      <returns>2 つの文字列間の SOUNDEX 値の差。</returns>
+      <param name="string1">第 1 文字列。</param>
+      <param name="string2">第 2 文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Exp(System.Nullable{System.Decimal})">
+      <summary>指定された float 型の式の指数値を返します。</summary>
+      <returns>定数 e を入力値で累乗した値。</returns>
+      <param name="arg">入力値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Exp(System.Nullable{System.Double})">
+      <summary>指定された float 型の式の指数値を返します。</summary>
+      <returns>定数 e を入力値で累乗した値。</returns>
+      <param name="arg">入力値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.GetDate">
+      <summary>現在のデータベース システムのタイムスタンプを、データベースのタイム ゾーン オフセットを除いた datetime 値として返します。この値は、SQL Server のインスタンスが実行されているコンピューターのオペレーティング システムから取得されます。</summary>
+      <returns>現在のデータベースのタイムスタンプ。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.GetUtcDate">
+      <summary>現在のデータベース システムのタイムスタンプを datetime 値として返します。データベースのタイム ゾーン オフセットは含まれません。この値は現在の UTC 時刻 (世界協定時刻) を表します。この値は、SQL Server のインスタンスが実行されているコンピューターのオペレーティング システムから取得されます。</summary>
+      <returns>現在のデータベースの UTC タイムスタンプ。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.HostName">
+      <summary>ワークステーション名を返します。</summary>
+      <returns>ワークステーションの名前。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.IsDate(System.String)">
+      <summary>入力された値が有効な日付または時刻であるかどうかを示します。</summary>
+      <returns>入力された式が datetime 型か smalldatetime 型の有効な日付値または時刻値である場合は 1。それ以外の場合は 0。</returns>
+      <param name="arg">テスト対象の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.IsNumeric(System.String)">
+      <summary>入力された値が有効な数値型であるかどうかを示します。</summary>
+      <returns>入力された式が有効な数値型である場合は 1、それ以外の場合は 0。</returns>
+      <param name="arg">文字列式。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Log(System.Nullable{System.Decimal})">
+      <summary>指定された入力値の自然対数を返します。</summary>
+      <returns>入力値の自然対数。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Log(System.Nullable{System.Double})">
+      <summary>指定された入力値の自然対数を返します。</summary>
+      <returns>入力値の自然対数。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Log10(System.Nullable{System.Decimal})">
+      <summary>指定された入力値の 10 を底とする対数を返します。</summary>
+      <returns>入力値の 10 を底とする対数。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Log10(System.Nullable{System.Double})">
+      <summary>指定された入力値の 10 を底とする対数を返します。</summary>
+      <returns>入力値の 10 を底とする対数。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.NChar(System.Nullable{System.Int32})">
+      <summary>Unicode 標準の定義に従って、指定された整数コードの Unicode 文字を返します。</summary>
+      <returns>入力された文字コードに対応する文字。</returns>
+      <param name="arg">文字コード。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.PatIndex(System.String,System.String)">
+      <summary>有効なテキストおよび文字データ型の指定された式の中で特定のパターンが最初に現れる先頭位置 (パターンが見つからない場合は 0) を返します。</summary>
+      <returns>文字列パターンが最初に見つかった文字位置。</returns>
+      <param name="stringPattern">検索対象の文字列パターン。</param>
+      <param name="target">検索対象の文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Pi">
+      <summary>パイ (π) の定数値を返します。</summary>
+      <returns>パイ (π) を表す数値。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.QuoteName(System.String)">
+      <summary>Unicode 文字列に区切り記号を追加して返すことで、入力文字列から区切り記号で囲まれた有効な Microsoft SQL Server 識別子を作成します。</summary>
+      <returns>元の文字列に角かっこを追加した文字列。</returns>
+      <param name="stringArg">区切り記号を追加する式。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.QuoteName(System.String,System.String)">
+      <summary>Unicode 文字列に区切り記号を追加して返すことで、入力文字列から区切り記号で囲まれた有効な Microsoft SQL Server 識別子を作成します。</summary>
+      <returns>元の文字列に指定の区切り記号を追加した文字列。</returns>
+      <param name="stringArg">区切り記号を追加する式。</param>
+      <param name="quoteCharacter">区切り記号として使用する 1 つの文字を指定します。単一引用符 (')、左または右の角かっこ ([ ])、二重引用符 (") のいずれかを指定できます。区切り記号を指定しない場合は、角かっこが使用されます。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Radians(System.Nullable{System.Decimal})">
+      <summary>度数法で指定された角度に対応する弧度法のラジアンを返します。</summary>
+      <returns>指定された角度に対応する弧度法のラジアン。</returns>
+      <param name="arg">度数法での角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Radians(System.Nullable{System.Double})">
+      <summary>度数法で指定された角度に対応する弧度法のラジアンを返します。</summary>
+      <returns>指定された角度に対応する弧度法のラジアン。</returns>
+      <param name="arg">度数法での角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Radians(System.Nullable{System.Int32})">
+      <summary>度数法で指定された角度に対応する弧度法のラジアンを返します。</summary>
+      <returns>指定された角度に対応する弧度法のラジアン。</returns>
+      <param name="arg">度数法での角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Radians(System.Nullable{System.Int64})">
+      <summary>度数法で指定された角度に対応する弧度法のラジアンを返します。</summary>
+      <returns>指定された角度に対応する弧度法のラジアン。</returns>
+      <param name="arg">度数法での角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Rand">
+      <summary>0 ～ 1 (0 と 1 は除く) の float 型の疑似乱数値を返します。</summary>
+      <returns>疑似乱数値。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Rand(System.Nullable{System.Int32})">
+      <summary>0 ～ 1 (0 と 1 は除く) の float 型の疑似乱数値を返します。</summary>
+      <returns>疑似乱数値。</returns>
+      <param name="seed">シード値。シードを指定しない場合は、SQL Server データベース エンジンによってシード値がランダムに割り当てられます。指定したシード値について、返される結果は常に同じです。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Replicate(System.String,System.Nullable{System.Int32})">
+      <summary>指定された回数だけ文字列値を繰り返します。</summary>
+      <returns>target の文字列を、count に指定された回数だけ繰り返した文字列。</returns>
+      <param name="target">有効な文字列。</param>
+      <param name="count">target の繰り返し回数を指定する値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Sign(System.Nullable{System.Decimal})">
+      <summary>指定した式の符号として、正 (+1)、負 (-1)、ゼロ (0) のいずれかを返します。</summary>
+      <returns>入力された式の符号。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Sign(System.Nullable{System.Double})">
+      <summary>指定した式の符号として、正 (+1)、負 (-1)、ゼロ (0) のいずれかを返します。</summary>
+      <returns>入力された式の符号。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Sign(System.Nullable{System.Int32})">
+      <summary>指定した式の符号として、正 (+1)、負 (-1)、ゼロ (0) のいずれかを返します。</summary>
+      <returns>入力された式の符号。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Sign(System.Nullable{System.Int64})">
+      <summary>指定した式の符号として、正 (+1)、負 (-1)、ゼロ (0) のいずれかを返します。</summary>
+      <returns>入力された式の符号。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Sin(System.Nullable{System.Decimal})">
+      <summary>指定された角度の三角関数サインを返します。</summary>
+      <returns>入力された式の三角関数サイン。</returns>
+      <param name="arg">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Sin(System.Nullable{System.Double})">
+      <summary>指定された角度の三角関数サインを返します。</summary>
+      <returns>入力された式の三角関数サイン。</returns>
+      <param name="arg">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.SoundCode(System.String)">
+      <summary>英数字の文字列を発音が似た単語や名前を見つけるための 4 文字のコード (SOUNDEX) に変換します。</summary>
+      <returns>入力文字列の SOUNDEX コード。</returns>
+      <param name="arg">有効な文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Space(System.Nullable{System.Int32})">
+      <summary>連続する空白文字で構成される文字列を返します。</summary>
+      <returns>指定された数の空白文字で構成された文字列。</returns>
+      <param name="arg1">空白文字の数。負の値の場合は、null 文字列が返されます。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Square(System.Nullable{System.Decimal})">
+      <summary>指定された数値の 2 乗を返します。</summary>
+      <returns>入力された値の 2 乗。</returns>
+      <param name="arg1">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Square(System.Nullable{System.Double})">
+      <summary>指定された数値の 2 乗を返します。</summary>
+      <returns>入力された値の 2 乗。</returns>
+      <param name="arg1">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.SquareRoot(System.Nullable{System.Decimal})">
+      <summary>指定された数値の平方根を返します。</summary>
+      <returns>入力された値の平方根。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.SquareRoot(System.Nullable{System.Double})">
+      <summary>指定された数値の平方根を返します。</summary>
+      <returns>入力された値の平方根。</returns>
+      <param name="arg">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.StringConvert(System.Nullable{System.Decimal})">
+      <summary>数値データから変換された文字データを返します。</summary>
+      <returns>入力された式を文字列に変換した結果。</returns>
+      <param name="number">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.StringConvert(System.Nullable{System.Decimal},System.Nullable{System.Int32})">
+      <summary>数値データから変換された文字データを返します。</summary>
+      <returns>入力された式を文字列に変換した結果。</returns>
+      <param name="number">任意の数式を指定します。</param>
+      <param name="length">文字列の合計長。これには小数点、符号、数字、空白文字も含まれます。既定値は 10 です。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.StringConvert(System.Nullable{System.Decimal},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+      <summary>数値データから変換された文字データを返します。</summary>
+      <returns>入力された式を文字列に変換した結果。</returns>
+      <param name="number">任意の数式を指定します。</param>
+      <param name="length">文字列の合計長。これには小数点、符号、数字、空白文字も含まれます。既定値は 10 です。</param>
+      <param name="decimalArg">小数点以下の桁数。16 以下である必要があります。decimal に 16 を超える値を指定した場合、結果は小数点以下 16 桁に切り捨てられます。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.StringConvert(System.Nullable{System.Double})">
+      <summary>数値データから変換された文字データを返します。</summary>
+      <returns>入力された数値式を文字列に変換した結果。</returns>
+      <param name="number">任意の数式を指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.StringConvert(System.Nullable{System.Double},System.Nullable{System.Int32})">
+      <summary>数値データから変換された文字データを返します。</summary>
+      <returns>入力された数値式を文字列に変換した結果。</returns>
+      <param name="number">任意の数式を指定します。</param>
+      <param name="length">文字列の合計長。これには小数点、符号、数字、空白文字も含まれます。既定値は 10 です。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.StringConvert(System.Nullable{System.Double},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+      <summary>数値データから変換された文字データを返します。</summary>
+      <returns>入力された数値式を文字列に変換した結果。</returns>
+      <param name="number">任意の数式を指定します。</param>
+      <param name="length">文字列の合計長。これには小数点、符号、数字、空白文字も含まれます。既定値は 10 です。</param>
+      <param name="decimalArg">小数点以下の桁数。16 以下である必要があります。decimal に 16 を超える値を指定した場合、結果は小数点以下 16 桁に切り捨てられます。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Stuff(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+      <summary>文字列を別の文字列に挿入します。挿入先の文字列から、start 引数で指定された位置を起点として、指定された長さの文字を削除した後、start 位置に別の文字列を挿入します。</summary>
+      <returns>2 つの文字列から成る文字列。</returns>
+      <param name="stringInput">対象の文字列。</param>
+      <param name="start">置換文字列を挿入する stringinput 内の文字位置。</param>
+      <param name="length">stringInput から削除する文字数。length が stringInput より長い場合は、stringReplacement の最後の文字までが削除されます。</param>
+      <param name="stringReplacement">stringInput に挿入する部分文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Tan(System.Nullable{System.Decimal})">
+      <summary>入力された式の三角関数タンジェントを返します。</summary>
+      <returns>入力された角度のタンジェント。</returns>
+      <param name="arg">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Tan(System.Nullable{System.Double})">
+      <summary>入力された式の三角関数タンジェントを返します。</summary>
+      <returns>入力された角度のタンジェント。</returns>
+      <param name="arg">ラジアンで計測した角度。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.Unicode(System.String)">
+      <summary>Unicode 標準に定義された、入力式の先頭文字の整数値を返します。</summary>
+      <returns>入力文字列の最初の文字の文字コード。</returns>
+      <param name="arg">有効な文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.UserName">
+      <summary>指定された識別番号に対応するデータベース ユーザー名を返します。</summary>
+      <returns>ユーザー名。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlFunctions.UserName(System.Nullable{System.Int32})">
+      <summary>指定された識別番号に対応するデータベース ユーザー名を返します。</summary>
+      <returns>ユーザー名。</returns>
+      <param name="arg">ユーザー ID。</param>
+    </member>
+    <member name="T:System.Data.Entity.SqlServer.SqlProviderServices">
+      <summary>SQL Server の SqlClient プロバイダーの DbProviderServices の実装。</summary>
+    </member>
+    <member name="P:System.Data.Entity.SqlServer.SqlProviderServices.Instance">
+      <summary>SqlProviderServices 型のシングルトン インスタンス。</summary>
+      <returns>
+        <see cref="T:System.Data.Entity.SqlServer.SqlProviderServices" />.</returns>
+    </member>
+    <member name="F:System.Data.Entity.SqlServer.SqlProviderServices.ProviderInvariantName">
+      <summary>これは、Microsoft SQL Server for ADO.NET および Entity Framework プロバイダー サービスを指定するために使用される構成ファイルおよびコードベースの構成で "プロバイダー不変名" として使用する既知の文字列です。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlProviderServices.RegisterInfoMessageHandler(System.Data.Common.DbConnection,System.Action{System.String})">
+      <summary>データベース プロバイダーからの非エラー メッセージを処理するためのハンドラーを登録します。</summary>
+      <param name="connection">情報を受け取るための接続。</param>
+      <param name="handler">メッセージを処理するためのハンドラー。</param>
+    </member>
+    <member name="P:System.Data.Entity.SqlServer.SqlProviderServices.SqlServerTypesAssemblyName">
+      <summary>既定の選択内容をオーバーライドする Microsoft.SqlServer.Types アセンブリの完全名に設定します。</summary>
+    </member>
+    <member name="P:System.Data.Entity.SqlServer.SqlProviderServices.TruncateDecimalsToScale">
+      <summary>このフラグを false に設定すると、<see cref="T:System.Decimal" /> 値は、列に対して定義された精度 (小数点以下桁数) に切り捨てられません。既定値は true で、この動作に依存する既存のアプリケーションを壊すことを避けるために、decimal 値が切り捨てられることを示します。</summary>
+      <returns>
+        <see cref="T:System.Boolean" /> を返します。</returns>
+    </member>
+    <member name="T:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator">
+      <summary>プロバイダーに依存しない移行操作を、Microsoft SQL Server データベースに対して実行できる SQL コマンドに変換するプロバイダーを表します。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.#ctor">
+      <summary>
+        <see cref="T:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator" /> クラスの新しいインスタンスを初期化します。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.BuildColumnType(System.Data.Entity.Migrations.Model.ColumnModel)">
+      <summary>列のデータ型を指定する SQL を生成します。このメソッドは、列を作成する SQL ではなく、単に実際の型を生成します。</summary>
+      <returns>データ型を表す SQL。</returns>
+      <param name="columnModel">列の定義。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.CreateConnection">
+      <summary>現在のプロバイダーの空の接続を作成します。派生したプロバイダーが <see cref="T:System.Data.SqlClient.SqlConnection" /> 以外の接続を使用できるようにします。</summary>
+      <returns>現在のプロバイダーの空の接続。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.DropDefaultConstraint(System.String,System.String,System.Data.Entity.Migrations.Utilities.IndentedTextWriter)">
+      <summary>列の作成時に生成される既定の制約を削除しようとする SQL を生成するには、このメソッドを呼び出します。このメソッドは通常、列の作成または変更をオーバーライドするコードによって呼び出されます。</summary>
+      <param name="table">制約を適用するテーブル。</param>
+      <param name="column">制約を適用する列。</param>
+      <param name="writer">生成された SQL を書き込む必要があるライター。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Boolean)">
+      <summary>列に設定される定数 bool の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Byte[])">
+      <summary>列に設定される定数 byte[] の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Collections.Generic.IEnumerable{System.Data.Entity.Migrations.Model.MigrationOperation},System.String)">
+      <summary>一連の移行操作を Microsoft SQL Server 固有の SQL に変換します。</summary>
+      <returns>移行操作を実行するために実行される SQL ステートメントのリスト。</returns>
+      <param name="migrationOperations">変換される操作。</param>
+      <param name="providerManifestToken">対象の SQL Server のバージョンを表すトークン (2005", "2008").</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.AddColumnOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.AddColumnOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="addColumnOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.AddForeignKeyOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.AddForeignKeyOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="addForeignKeyOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.AddPrimaryKeyOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.AddPrimaryKeyOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="addPrimaryKeyOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.AlterColumnOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.AlterColumnOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="alterColumnOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.AlterProcedureOperation)">
+      <summary>指定したプロシージャ変更操作を生成します。</summary>
+      <param name="alterProcedureOperation">プロシージャ変更操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.AlterTableOperation)">
+      <summary>テーブルまたはその属性の定義が変更されるときの SQL を生成するには、このメソッドをオーバーライドします。このメソッドの既定の実装では、何も実行されません。</summary>
+      <param name="alterTableOperation">テーブルへの変更を記述した操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.ColumnModel,System.Data.Entity.Migrations.Utilities.IndentedTextWriter)">
+      <summary>指定した列モデルの SQL を生成します。このメソッドは、列を処理する他のメソッドによって呼び出されます。また、生成される SQL を変更するためにオーバーライドできます。</summary>
+      <param name="column">SQL が生成される列。</param>
+      <param name="writer">生成された SQL を書き込む必要があるライター。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.CreateIndexOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.CreateIndexOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="createIndexOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.CreateProcedureOperation)">
+      <summary>指定したプロシージャ作成操作を生成します。</summary>
+      <param name="createProcedureOperation">プロシージャ作成操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.CreateTableOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.CreateTableOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="createTableOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.DropColumnOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.DropColumnOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="dropColumnOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.DropForeignKeyOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.DropForeignKeyOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="dropForeignKeyOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.DropIndexOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.DropIndexOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="dropIndexOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.DropPrimaryKeyOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.DropPrimaryKeyOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="dropPrimaryKeyOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.DropProcedureOperation)">
+      <summary>指定したプロシージャ削除操作を生成します。</summary>
+      <param name="dropProcedureOperation">プロシージャ削除操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.DropTableOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.DropTableOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="dropTableOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.HistoryOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.HistoryOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="historyOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.MigrationOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.MigrationOperation" /> の SQL を生成します。派生したプロバイダーがその他の種類の操作を処理できるようにします。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="migrationOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.MoveProcedureOperation)">
+      <summary>指定したプロシージャ移動操作を生成します。</summary>
+      <param name="moveProcedureOperation">プロシージャ移動操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.MoveTableOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.MoveTableOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="moveTableOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.RenameColumnOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.RenameColumnOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="renameColumnOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.RenameIndexOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.RenameIndexOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="renameIndexOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.RenameProcedureOperation)">
+      <summary>指定したプロシージャ名前変更操作を生成します。</summary>
+      <param name="renameProcedureOperation">プロシージャ名前変更操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.RenameTableOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.RenameTableOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="renameTableOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.SqlOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.SqlOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="sqlOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.UpdateDatabaseOperation)">
+      <summary>一連の移行の適用を表す、指定したデータベース更新操作を生成します。生成されるスクリプトはべき等です。つまり、個々の移行が既に適用されているかどうかを確認し、保留中の移行のみを適用する条件ロジックを含みます。</summary>
+      <param name="updateDatabaseOperation">データベース更新操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Spatial.DbGeography)">
+      <summary>列に設定される定数 geography の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>列に設定される定数 geometry の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.DateTime)">
+      <summary>列に設定される定数 DateTime の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.DateTimeOffset)">
+      <summary>列に設定される定数 DateTimeOffset の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Guid)">
+      <summary>列に設定される定数 Guid の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.Object)">
+      <summary>列に設定される定数の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.String)">
+      <summary>列に設定される定数 string の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Generate(System.TimeSpan)">
+      <summary>列に設定される定数 TimeSpan の既定値を指定する SQL を生成します。このメソッドは、既定値を設定する SQL ではなく、単に実際の値を生成します。</summary>
+      <returns>既定値を表す SQL。</returns>
+      <param name="defaultValue">設定される値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.GenerateCreateSchema(System.String)">
+      <summary>データベース スキーマを作成する SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="schema">作成するスキーマの名前。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.GenerateMakeSystemTable(System.Data.Entity.Migrations.Model.CreateTableOperation,System.Data.Entity.Migrations.Utilities.IndentedTextWriter)">
+      <summary>テーブルをシステム テーブルとしてマークする SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="createTableOperation">システム テーブルとしてマークするテーブル。</param>
+      <param name="writer">生成された SQL を書き込む <see cref="T:System.Data.Entity.Migrations.Utilities.IndentedTextWriter" />。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.GenerateProcedureBody(System.Collections.Generic.ICollection{System.Data.Entity.Core.Common.CommandTrees.DbModificationCommandTree},System.String,System.String)">
+      <summary>ストアド プロシージャの SQL 本体を生成します。</summary>
+      <returns>ストアド プロシージャの SQL 本体。</returns>
+      <param name="commandTrees">挿入、更新、削除の操作のコマンドを表すコマンド ツリー。</param>
+      <param name="rowsAffectedParameter">影響を受ける行のパラメーター名。</param>
+      <param name="providerManifestToken">プロバイダー マニフェスト トークン。</param>
+    </member>
+    <member name="P:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.GuidColumnDefault">
+      <summary>移行に既定値が明示的に指定されていない場合は、ストア生成 GUID 列に使用する列の既定値を返します。内部設置型の SQL Server 2005 以降では newsequentialid() を返します。SQL Azure では newid() を返します。</summary>
+      <returns>前に説明したように newsequentialid() または newid() のいずれか。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Name(System.String)">
+      <summary>引用符で囲まれた名前を生成します。提供された名前にはスキーマが含まれる場合と含まれない場合があります。</summary>
+      <returns>引用符で囲まれた名前。</returns>
+      <param name="name">引用符で囲む名前。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Quote(System.String)">
+      <summary>SQL Server の識別子を引用符で囲みます。</summary>
+      <returns>引用符で囲まれた識別子。</returns>
+      <param name="identifier">引用符で囲む識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Statement(System.Data.Entity.Migrations.Utilities.IndentedTextWriter,System.String)">
+      <summary>データベースに対して実行される新しい Statement を追加します。</summary>
+      <param name="writer">実行される SQL を格納するライター。</param>
+      <param name="batchTerminator">データベース プロバイダーのバッチ ターミネータ。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Statement(System.String,System.Boolean,System.String)">
+      <summary>データベースに対して実行される新しい Statement を追加します。</summary>
+      <param name="sql">実行されるステートメント。</param>
+      <param name="suppressTransaction">移行プロセスをトランザクション化するために使用されるトランザクション スコープ外でこのステートメントを実行するかどうかを示します。true に設定すると、移行プロセスが失敗しても、この操作はロールバックされません。</param>
+      <param name="batchTerminator">データベース プロバイダーのバッチ ターミネータ。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.StatementBatch(System.String,System.Boolean)">
+      <summary>SQL 文字列を 1 つ以上のステートメントに分割します。必要に応じて T-SQL ユーティリティ ステートメントを処理します。</summary>
+      <param name="sqlBatch">1 つ以上のステートメントに分割して実行する SQL。</param>
+      <param name="suppressTransaction">移行プロセスをトランザクション化するために使用されるトランザクション スコープ外でこのステートメントを実行するかどうかを示す値を取得または設定します。true に設定すると、移行プロセスが失敗しても、この操作はロールバックされません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.WriteCreateTable(System.Data.Entity.Migrations.Model.CreateTableOperation)">
+      <summary>
+        <see cref="T:System.Data.Entity.Migrations.Model.CreateTableOperation" /> の SQL を生成します。生成された SQL は Statement メソッドを使用して追加する必要があります。</summary>
+      <param name="createTableOperation">SQL の生成対象の操作。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.WriteCreateTable(System.Data.Entity.Migrations.Model.CreateTableOperation,System.Data.Entity.Migrations.Utilities.IndentedTextWriter)">
+      <summary>ターゲット ライターに CREATE TABLE SQL を記述します。</summary>
+      <param name="createTableOperation">SQL の生成対象の操作。</param>
+      <param name="writer">ターゲット ライター。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.Writer">
+      <summary>SQL のビルドに使用できる新しい <see cref="T:System.Data.Entity.Migrations.Utilities.IndentedTextWriter" /> を取得します。これはライターを作成するための単なるヘルパー メソッドです。ライターへの書き込みにより SQL が実行のために登録されることはありません。生成された SQL を Statement メソッドに渡す必要があります。</summary>
+      <returns>SQL の生成に使用する空のテキスト ライター。</returns>
+    </member>
+    <member name="T:System.Data.Entity.SqlServer.SqlSpatialFunctions">
+      <summary>Linq to Entities 内の SqlServer メソッドを公開する関数スタブが含まれています。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.AsTextZM(System.Data.Entity.Spatial.DbGeography)">
+      <summary>geography インスタンスで保持される Z (高さ) と M (メジャー) 値を使用して拡張されるそのインスタンスの OGC (Open Geospatial Consortium) WKT (Well-Known Text) 表現を返します。</summary>
+      <returns>geography インスタンスの OGC (Open Geospatial Consortium) WKT (Well-Known Text) 表現。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.AsTextZM(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>geography インスタンスで保持される Z (高さ) と M (メジャー) 値を使用して拡張されるそのインスタンスの OGC (Open Geospatial Consortium) WKT (Well-Known Text) 表現を返します。</summary>
+      <returns>geometry インスタンスの OGC (Open Geospatial Consortium) WKT (Well-Known Text) 表現。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.BufferWithTolerance(System.Data.Entity.Spatial.DbGeography,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Boolean})">
+      <summary>geography インスタンスからの距離が指定した値以下であるすべてのポイント値の和集合を表す geometry 型のオブジェクトを、指定した許容範囲を考慮して返します。</summary>
+      <returns>geography インスタンスからの距離が指定した値以下であるすべてのポイント値の和集合</returns>
+      <param name="geographyValue">geography 値。</param>
+      <param name="distance">距離。</param>
+      <param name="tolerance">指定した許容範囲。</param>
+      <param name="relative">許容範囲の値が相対値と絶対値のどちらであるかを指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.BufferWithTolerance(System.Data.Entity.Spatial.DbGeometry,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Boolean})">
+      <summary>geometry インスタンスからの距離が指定した値以下であるすべてのポイント値の和集合を表す geometry 型のオブジェクトを、指定した許容範囲を考慮して返します。</summary>
+      <returns>geometry インスタンスからの距離が指定した値以下であるすべてのポイント値の和集合</returns>
+      <param name="geometryValue">geometry 値。</param>
+      <param name="distance">距離。</param>
+      <param name="tolerance">指定した許容範囲。</param>
+      <param name="relative">許容範囲の値が相対値と絶対値のどちらであるかを指定します。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.EnvelopeAngle(System.Data.Entity.Spatial.DbGeography)">
+      <summary>EnvelopeCenter() によって返されるポイントと geography インスタンス内のポイントの間の最大角度 (度数) を返します。</summary>
+      <returns>EnvelopeCenter() によって返されるポイントの間の最大角度。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.EnvelopeCenter(System.Data.Entity.Spatial.DbGeography)">
+      <summary>geography インスタンスの境界円の中心として使用できるポイントを返します。</summary>
+      <returns>境界円の中心の位置を指定する SqlGeography 値。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.Filter(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>インデックスが使用可能である場合に、geography インスタンスが別の SqlGeography インスタンスと交差するかどうかを判断する、高速のインデックス専用積集合メソッドを提供します。</summary>
+      <returns>geography インスタンスが別の SqlGeography インスタンスと交差する可能性がある場合は true、それ以外の場合は false。</returns>
+      <param name="geographyValue">geography 値。</param>
+      <param name="geographyOther">Filter が呼び出されるインスタンスと比較する別の geography インスタンス。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.Filter(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>インデックスが使用可能である場合に、geography インスタンスが別の SqlGeometry インスタンスと交差するかどうかを判断する、高速のインデックス専用積集合メソッドを提供します。</summary>
+      <returns>geography インスタンスが別の SqlGeography インスタンスと交差する可能性がある場合は true、それ以外の場合は false。</returns>
+      <param name="geometryValue">geometry 値。</param>
+      <param name="geometryOther">Filter が呼び出されるインスタンスと比較する別の geography インスタンス。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.InstanceOf(System.Data.Entity.Spatial.DbGeography,System.String)">
+      <summary>SqlGeography インスタンスが指定された型と同じかどうかをテストします。</summary>
+      <returns>geography 型の階層で公開される 12 個の型のいずれかを指定する文字列。</returns>
+      <param name="geographyValue">geography 値。</param>
+      <param name="geometryTypeName">geography 型の階層で公開される 12 個の型のいずれかを指定する文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.InstanceOf(System.Data.Entity.Spatial.DbGeometry,System.String)">
+      <summary>SqlGeometry インスタンスが指定された型と同じかどうかをテストします。</summary>
+      <returns>geography 型の階層で公開される 12 個の型のいずれかを指定する文字列。</returns>
+      <param name="geometryValue">geometry 値。</param>
+      <param name="geometryTypeName">geography 型の階層で公開される 12 個の型のいずれかを指定する文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.MakeValid(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>無効な geometry インスタンスを、有効な OGC (Open Geospatial Consortium) 型の geometry インスタンスに変換します。</summary>
+      <returns>変換後の geometry インスタンス。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.NumRings(System.Data.Entity.Spatial.DbGeography)">
+      <summary>ポリゴン インスタンスのリングの総数を返します。</summary>
+      <returns>リングの総数。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.PointGeography(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Int32})">
+      <summary>ポイント インスタンスをその x 値と y 値および空間参照 ID (SRID) から表す geography インスタンスを構築します。</summary>
+      <returns>構築された geography インスタンス。</returns>
+      <param name="latitude">生成されたポイントの x 座標。</param>
+      <param name="longitude">生成されたポイントの y 座標。</param>
+      <param name="spatialReferenceId">geography インスタンスの SRID。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.PointGeometry(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Int32})">
+      <summary>ポイント インスタンスをその x 値と y 値および空間参照 ID (SRID) から表す geometry インスタンスを構築します。</summary>
+      <returns>構築された geometry インスタンス。</returns>
+      <param name="xCoordinate">生成されたポイントの x 座標。</param>
+      <param name="yCoordinate">生成されたポイントの y 座標。</param>
+      <param name="spatialReferenceId">geography インスタンスの SRID。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.Reduce(System.Data.Entity.Spatial.DbGeography,System.Nullable{System.Double})">
+      <summary>特定の許容範囲のインスタンスで Douglas-Peucker アルゴリズムを実行することで生成される特定の geography インスタンスの近似値を返します。</summary>
+      <returns>
+        <see cref="T:System.Data.Entity.Spatial.DbGeography" /> を返します。</returns>
+      <param name="geographyValue">geography 値。</param>
+      <param name="tolerance">Douglas-Peucke アルゴリズムへ入力する許容範囲。許容範囲は正の数である必要があります。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.Reduce(System.Data.Entity.Spatial.DbGeometry,System.Nullable{System.Double})">
+      <summary>特定の許容範囲のインスタンスで Douglas-Peucker アルゴリズムを実行することで生成される特定の geography インスタンスの近似値を返します。</summary>
+      <returns>
+        <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> を返します。</returns>
+      <param name="geometryValue">geometry 値。</param>
+      <param name="tolerance">Douglas-Peucke アルゴリズムへ入力する許容範囲。許容範囲は正の数である必要があります。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialFunctions.RingN(System.Data.Entity.Spatial.DbGeography,System.Nullable{System.Int32})">
+      <summary>SqlGeography インスタンスの指定したリングを返します: 1 ≤ n ≤ NumRings()。</summary>
+      <returns>n で指定されたリングを表す SqlGeography オブジェクト。</returns>
+      <param name="geographyValue">geography 値。</param>
+      <param name="index">1 からポリゴン インスタンス内のリングの数までの int 式。</param>
+    </member>
+    <member name="T:System.Data.Entity.SqlServer.SqlSpatialServices">
+      <summary>Microsoft SQL Server で Entity Framework を使用するときに地理空間型をサポートするための <see cref="T:System.Data.Entity.Spatial.DbSpatialServices" /> の実装を表します。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.AsBinary(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の既知のバイナリ表現を取得します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の既知のバイナリ表現。</returns>
+      <param name="geographyValue">既知のバイナリを生成する必要がある geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.AsBinary(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の既知のバイナリ表現を取得します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の既知のバイナリ表現。</returns>
+      <param name="geometryValue">既知のバイナリを生成する必要がある geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.AsGml(System.Data.Entity.Spatial.DbGeography)">
+      <summary>この <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の Geography Markup Language (GML) 表現を生成します。</summary>
+      <returns>この DbGeography 値の GML 表現を含む文字列。</returns>
+      <param name="geographyValue">GML を生成する必要がある geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.AsGml(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>この <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の Geography Markup Language (GML) 表現を生成します。</summary>
+      <returns>この DbGeometry 値の GML 表現を含む文字列。</returns>
+      <param name="geometryValue">GML を生成する必要がある geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.AsText(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の既知のテキスト表現を取得します。この値は、ポイントの Longitude と Latitude のみを含む必要があります。</summary>
+      <returns>
+        <paramref name="geographyValue" /> の既知のテキスト表現を含む文字列。</returns>
+      <param name="geographyValue">既知のテキストを生成する必要がある geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.AsText(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>点の X 座標および Y 座標のみを含む、指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の既知のテキスト表現を取得します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> の既知のテキスト表現を含む文字列。</returns>
+      <param name="geometryValue">既知のテキストを生成する必要がある geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.AsTextIncludingElevationAndMeasure(System.Data.Entity.Spatial.DbGeography)">
+      <summary>昇格とメジャーがある <see cref="T:System.Data.Entity.SqlServer.SqlSpatialServices" /> のテキスト表現を返します。</summary>
+      <returns>
+        <see cref="T:System.Data.Entity.SqlServer.SqlSpatialServices" /> のテキスト表現。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.AsTextIncludingElevationAndMeasure(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>昇格とメジャーがある <see cref="T:System.Data.Entity.SqlServer.SqlSpatialServices" /> のテキスト表現を返します。</summary>
+      <returns>
+        <see cref="T:System.Data.Entity.SqlServer.SqlSpatialServices" /> のテキスト表現。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Buffer(System.Data.Entity.Spatial.DbGeography,System.Double)">
+      <summary>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値から distance 以下の距離にあるすべての点を表す geography 値を作成します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> から distance 以下の距離にあるすべての点を表す、新しい DbGeography 値。</returns>
+      <param name="geographyValue">geography 値。</param>
+      <param name="distance">
+        <paramref name="geographyValue" /> からバッファーへの距離を指定する double 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Buffer(System.Data.Entity.Spatial.DbGeometry,System.Double)">
+      <summary>指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値から distance 以下の距離にあるすべての点を表す geometry 値を作成します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> から distance 以下の距離にあるすべての点を表す新しい DbGeometry 値。</returns>
+      <param name="geometryValue">geometry 値。</param>
+      <param name="distance">
+        <paramref name="geometryValue" /> からバッファーへの距離を指定する double 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Contains(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>一方の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空間的に他方の値を含んでいるかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> に <paramref name="otherGeometry" /> が含まれる場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.CreateProviderValue(System.Data.Entity.Spatial.DbGeographyWellKnownValue)">
+      <summary>既知の <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 表現に基づいて、この空間サービスの実装と互換性があるプロバイダー固有の値を作成します。</summary>
+      <returns>この空間サービスの実装と互換性のある方法で、<paramref name="wellKnownValue" /> に格納された情報をエンコードするプロバイダー固有の値。</returns>
+      <param name="wellKnownValue">geography 値の既知の表現を含む <see cref="T:System.Data.Entity.Spatial.DbGeographyWellKnownValue" /> インスタンス。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.CreateProviderValue(System.Data.Entity.Spatial.DbGeometryWellKnownValue)">
+      <summary>既知の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 表現に基づいて、この空間サービスの実装と互換性があるプロバイダー固有の値を作成します。</summary>
+      <returns>この空間サービスの実装と互換性のある方法で、<paramref name="wellKnownValue" /> に格納された情報をエンコードするプロバイダー固有の値。</returns>
+      <param name="wellKnownValue">geometry 値の既知の表現を含む <see cref="T:System.Data.Entity.Spatial.DbGeometryWellKnownValue" /> インスタンス。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.CreateWellKnownValue(System.Data.Entity.Spatial.DbGeography)">
+      <summary>標準の既知の空間形式のいずれかまたは両方を使用して、指定した <see cref="T:System.Data.Entity.Spatial.DbGeographyWellKnownValue" /> 値を表す <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のインスタンスを作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeographyWellKnownValue" /> としての <paramref name="geographyValue" /> の既知の表現。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.CreateWellKnownValue(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>標準の既知の空間形式のいずれかまたは両方を使用して、指定した <see cref="T:System.Data.Entity.Spatial.DbGeometryWellKnownValue" /> 値を表す <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のインスタンスを作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeometryWellKnownValue" /> としての <paramref name="geometryValue" /> の既知の表現。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Crosses(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空間的に交わるかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> が <paramref name="otherGeometry" /> と交わる場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Difference(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の差を計算します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> と <paramref name="otherGeography" /> の差を表す新しい DbGeography 値。</returns>
+      <param name="geographyValue">最初の geography 値。</param>
+      <param name="otherGeography">2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Difference(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の差を計算します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> と <paramref name="otherGeometry" /> の差を表す新しい DbGeometry 値。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Disjoint(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が空間的に非結合であるかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> が <paramref name="otherGeography" /> から結合解除されている場合は true。それ以外の場合は false。</returns>
+      <param name="geographyValue">結合解除を比較する最初の geography 値。</param>
+      <param name="otherGeography">結合解除のために比較する 2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Disjoint(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空間的に非結合であるかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> が <paramref name="otherGeometry" /> から結合解除されている場合は true、それ以外の場合は false。</returns>
+      <param name="geometryValue">結合解除を比較する最初の geometry 値。</param>
+      <param name="otherGeometry">結合解除のために比較する 2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Distance(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の最も近いポイント間の距離を計算します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> と <paramref name="otherGeography" /> で最も近い 2 点間の距離を指定する double 値。</returns>
+      <param name="geographyValue">最初の geography 値。</param>
+      <param name="otherGeography">2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Distance(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の最も近いポイント間の距離を計算します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> と <paramref name="otherGeography" /> で最も近い 2 点間の距離を指定する double 値。</returns>
+      <param name="geometryValue">最初の geography 値。</param>
+      <param name="otherGeometry">2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.ElementAt(System.Data.Entity.Spatial.DbGeography,System.Int32)">
+      <summary>特定の <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が地理コレクションを表す場合、その値の要素を返します。</summary>
+      <returns>他の geography 値を表す場合は位置 <paramref name="index" /> での <paramref name="geographyValue" /> 内の要素。それ以外の場合は null。</returns>
+      <param name="geographyValue">geography 値。地理コレクションを表す必要はありません。</param>
+      <param name="index">要素を取得する、geography 値内の位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.ElementAt(System.Data.Entity.Spatial.DbGeometry,System.Int32)">
+      <summary>特定の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がジオメトリ コレクションを表す場合、その値の要素を返します。</summary>
+      <returns>他の geography 値を表す場合は位置 <paramref name="index" /> での <paramref name="geographyValue" /> 内の要素。それ以外の場合は null。</returns>
+      <param name="geometryValue">geometry 値。ジオメトリ コレクションを表す必要はありません。</param>
+      <param name="index">要素を取得する、geometry 値内の位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyCollectionFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のコレクションの値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="geographyCollectionWellKnownBinary">geography 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyCollectionFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のコレクションの値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="geographyCollectionWellKnownText">geography 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyFromBinary(System.Byte[])">
+      <summary>指定した既知のバイナリ値に基づいて新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を作成します。</summary>
+      <returns>既定の <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) で既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="wellKnownBinary">geography 値の既知のバイナリ表現を含むバイト配列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="wellKnownBinary">geography 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyFromGml(System.String)">
+      <summary>指定された Geography Markup Language (GML) 値に基づいて新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を作成します。</summary>
+      <returns>既定の <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) で GML 値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="geographyMarkup">geography 値の Geometry Markup Language (GML) 表現を含む文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyFromGml(System.String,System.Int32)">
+      <summary>指定した Geography Markup Language (GML) 値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) で GML 値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="geographyMarkup">geography 値の Geometry Markup Language (GML) 表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyFromProviderValue(System.Object)">
+      <summary>この空間サービスの実装と互換性があるプロバイダー固有の値に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を作成します。</summary>
+      <returns>この空間サービスの実装と指定されたプロバイダー値によってサポートされる新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="providerValue">この空間サービスの実装が geography 値として解釈できるプロバイダー固有の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyFromText(System.String)">
+      <summary>指定した既知のテキスト値に基づいて新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を作成します。</summary>
+      <returns>既定の <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) で既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="wellKnownText">geography 値の既知のテキスト表現を含む文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="wellKnownText">geography 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyLineFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 行の値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="lineWellKnownBinary">geography 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyLineFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 行の値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="lineWellKnownText">geography 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyMultiLineFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> の複数行の値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 複数行値。</returns>
+      <param name="multiLineWellKnownBinary">既知のバイナリ値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyMultiLineFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> の複数行の値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 複数行値。</returns>
+      <param name="multiLineWellKnownText">既知のテキスト値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyMultiPointFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のマルチポイントの値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> マルチポイント値。</returns>
+      <param name="multiPointWellKnownBinary">既知のバイナリ値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyMultiPointFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のマルチポイントの値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> マルチポイント値。</returns>
+      <param name="multiPointWellKnownText">既知のテキスト値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyMultiPolygonFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のマルチポリゴンの値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> マルチポリゴン値。</returns>
+      <param name="multiPolygonWellKnownBinary">既知のバイナリ値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyMultiPolygonFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のマルチポリゴンの値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> マルチポリゴン値。</returns>
+      <param name="multiPolygonKnownText">既知のテキスト値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyPointFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 点の値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="pointWellKnownBinary">geography 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyPointFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 点の値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="pointWellKnownText">geography 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyPolygonFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のポリゴンの値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="polygonWellKnownBinary">geography 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeographyPolygonFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> のポリゴンの値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeography.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="polygonWellKnownText">geography 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryCollectionFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のコレクションの値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="geometryCollectionWellKnownBinary">geometry 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryCollectionFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のコレクションの値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="geometryCollectionWellKnownText">geometry 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryFromBinary(System.Byte[])">
+      <summary>指定した既知のバイナリ値に基づいて新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を作成します。</summary>
+      <returns>既定の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) で既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="wellKnownBinary">geometry 値の既知のバイナリ表現を含むバイト配列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="wellKnownBinary">geometry 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryFromGml(System.String)">
+      <summary>指定された Geography Markup Language (GML) 値に基づいて新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を作成します。</summary>
+      <returns>既定の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) で GML 値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="geometryMarkup">geometry 値の Geography Markup Language (GML) 表現を含む文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryFromGml(System.String,System.Int32)">
+      <summary>指定した Geography Markup Language (GML) 値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) で GML 値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="geometryMarkup">geometry 値の Geography Markup Language (GML) 表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryFromProviderValue(System.Object)">
+      <summary>この空間サービスの実装と互換性があるプロバイダー固有の値に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を作成します。</summary>
+      <returns>この空間サービスの実装と指定されたプロバイダー値によってサポートされる新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="providerValue">この空間サービスの実装が geometry 値として解釈できるプロバイダー固有の値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryFromText(System.String)">
+      <summary>指定した既知のテキスト値に基づいて新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を作成します。</summary>
+      <returns>既定の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) で既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="wellKnownText">geometry 値の既知のテキスト表現を含む文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="wellKnownText">geometry 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryLineFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 行の値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="lineWellKnownBinary">geometry 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryLineFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 行の値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="lineWellKnownText">geometry 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryMultiLineFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> の複数行の値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 複数行値。</returns>
+      <param name="multiLineWellKnownBinary">既知のバイナリ値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryMultiLineFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> の複数行の値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 複数行値。</returns>
+      <param name="multiLineWellKnownText">既知のテキスト値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryMultiPointFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のマルチポイントの値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> マルチポイント値。</returns>
+      <param name="multiPointWellKnownBinary">既知のバイナリ値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryMultiPointFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のマルチポイントの値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> マルチポイント値。</returns>
+      <param name="multiPointWellKnownText">既知のテキスト値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryMultiPolygonFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のマルチポリゴンの値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> マルチポリゴン値。</returns>
+      <param name="multiPolygonWellKnownBinary">既知のバイナリ値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryMultiPolygonFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のマルチポリゴンの値を作成します。</summary>
+      <returns>新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> マルチポリゴン値。</returns>
+      <param name="multiPolygonKnownText">既知のテキスト値。</param>
+      <param name="coordinateSystemId">座標系識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryPointFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 点の値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="pointWellKnownBinary">geometry 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryPointFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 点の値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="pointWellKnownText">geometry 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryPolygonFromBinary(System.Byte[],System.Int32)">
+      <summary>指定した既知のバイナリ値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のポリゴンの値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) ( <see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のバイナリ値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="polygonWellKnownBinary">geometry 値の既知のバイナリ表現を含むバイト配列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GeometryPolygonFromText(System.String,System.Int32)">
+      <summary>指定した既知のテキスト値と座標系識別子 (SRID) に基づいて、新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> のポリゴンの値を作成します。</summary>
+      <returns>指定された座標系識別子 (SRID) (<see cref="P:System.Data.Entity.Spatial.DbGeometry.DefaultCoordinateSystemId" />) を持つ既知のテキスト値によって定義される新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="polygonWellKnownText">geometry 値の既知のテキスト表現を含む文字列。</param>
+      <param name="coordinateSystemId">新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を使用する必要がある座標系の識別子。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetArea(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の領域を示す null 許容型の double 値を返します。値がサーフェスを表していない場合は null が返されます。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の領域を示す null 許容の double 値。</returns>
+      <param name="geographyValue">geography 値。サーフェスを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetArea(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の領域を示す null 許容型の double 値を返します。値がサーフェスを表していない場合は null が返されます。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の領域を示す null 許容の double 値。</returns>
+      <param name="geometryValue">geometry 値。サーフェスを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetBoundary(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の境界を示す null 許容型の double 値を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の境界。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetCentroid(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した DbGeometry 値の重心を表す <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を返します。この値はサーフェスを表していない場合は null になります。</summary>
+      <returns>サーフェスを表す場合は <paramref name="geometryValue" /> の重心、それ以外の場合は null。</returns>
+      <param name="geometryValue">geometry 値。サーフェスを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetConvexHull(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の凸包を示す null 許容型の double 値を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の凸包。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetCoordinateSystemId(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の座標系識別子を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の座標系識別子。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetCoordinateSystemId(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の座標系識別子を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の座標系識別子。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetDimension(System.Data.Entity.Spatial.DbGeography)">
+      <summary>特定の <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の次元を取得します。値がコレクションの場合は、最大の要素の次元を取得します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> の次元。<see cref="T:System.Data.Entity.Spatial.DbGeography" /> がコレクションである場合は、要素の最大次元。</returns>
+      <param name="geographyValue">寸法値を取得する必要がある geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetDimension(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>特定の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の次元を取得します。値がコレクションの場合は、最大の要素の次元を取得します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> の次元。<see cref="T:System.Data.Entity.Spatial.DbGeometry" /> がコレクションである場合は、要素の最大次元。</returns>
+      <param name="geometryValue">寸法値を取得する必要がある geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetElementCount(System.Data.Entity.Spatial.DbGeography)">
+      <summary>特定の <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が地理コレクションを表す場合、その値に含まれる要素の数を返します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> が他の geography 値のコレクションを表す場合は、この geographyValue の要素の数。それ以外の場合は null。</returns>
+      <param name="geographyValue">geography 値。地理コレクションを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetElementCount(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>特定の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がジオメトリ コレクションを表す場合、その値に含まれる要素の数を返します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> が他の geometry 値のコレクションを表す場合は、この geometryValue の要素の数。それ以外の場合は null。</returns>
+      <param name="geometryValue">geometry 値。ジオメトリ コレクションを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetElevation(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値がポイントを表す場合、その高さ (Z 座標) を返します。</summary>
+      <returns>ポイントを表す場合は <paramref name="geographyValue" /> の高さ (Z 座標)、それ以外の場合は null。</returns>
+      <param name="geographyValue">ポイントを表す必要のない geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetElevation(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がポイントを表す場合、その高さ (Z) を返します。</summary>
+      <returns>ポイントを表す場合は <paramref name="geometryValue" /> の高さ (Z)、それ以外の場合は null。</returns>
+      <param name="geometryValue">ポイントを表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetEndPoint(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した DbGeography 値の終点を表す <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を返します。この値が曲線を表していない場合は null になります。</summary>
+      <returns>曲線を表す場合は <paramref name="geographyValue" /> の終点、それ以外の場合は null。</returns>
+      <param name="geographyValue">曲線を表す必要のない geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetEndPoint(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した DbGeometry 値の終点を表す <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を返します。この値が曲線を表していない場合は null になります。</summary>
+      <returns>曲線を表す場合は <paramref name="geometryValue" /> の終点、それ以外の場合は null。</returns>
+      <param name="geometryValue">曲線を表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetEnvelope(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>特定の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値のエンベロープ (最小境界ボックス) を geometry 値として取得します。</summary>
+      <returns>
+        <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値としての <paramref name="geometryValue" /> のエンベロープ。</returns>
+      <param name="geometryValue">エンベロープ値を取得する必要がある geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetExteriorRing(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した DbGeometry 値の外部リングを表す <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を返します。この値はポリゴンを表していない場合は null になります。</summary>
+      <returns>ポリゴンを表す場合、<paramref name="geometryValue" /> の外部リングを表す DbGeometry 値。それ以外の場合は null。</returns>
+      <param name="geometryValue">geometry 値。ポリゴンを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetInteriorRingCount(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がポリゴンを表す場合、その値に含まれる内部リングの数を取得します。</summary>
+      <returns>ポリゴンを表す場合は、この <paramref name="geometryValue" /> の要素の数。それ以外の場合は null。</returns>
+      <param name="geometryValue">geometry 値。ポリゴンを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetIsClosed(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が閉じているかどうかを表す null 許容型のブール値を返します。値が曲線を表していない場合は null が返されます。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が閉じている場合は true。それ以外の場合は false。</returns>
+      <param name="geographyValue">曲線を表す必要のない geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetIsClosed(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が閉じているかどうかを表す null 許容型のブール値を返します。値が曲線を表していない場合は null が返されます。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が閉じている場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">曲線を表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetIsEmpty(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が空かどうかを表す null 許容型のブール値を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が空の場合は true。それ以外の場合は false。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetIsEmpty(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空かどうかを表す null 許容型のブール値を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空の場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetIsRing(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がリングかどうかを表す null 許容型のブール値を返します。値が曲線を表していない場合は null が返されます。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がリングの場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">曲線を表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetIsSimple(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が単純であるかどうかを表す null 許容型のブール値を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が単純である場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetIsValid(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が有効かどうかを表す null 許容型のブール値を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が有効な場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetLatitude(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値がポイントを表す場合、その値の緯度の座標を返します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の緯度座標。</returns>
+      <param name="geographyValue">ポイントを表す必要のない geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetLength(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の長さを示す null 許容型の double 値を返します。値が曲線を表していない場合は null が返されます。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の長さ。</returns>
+      <param name="geographyValue">曲線を表す必要のない geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetLength(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の長さを示す null 許容型の double 値を返します。値が曲線を表していない場合は null が返されます。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の長さ。</returns>
+      <param name="geometryValue">曲線を表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetLongitude(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値がポイントを表す場合、その値の経度座標を返します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の経度座標。</returns>
+      <param name="geographyValue">ポイントを表す必要のない geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetMeasure(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値がポイントを表す場合、その値の M (メジャー) 座標を返します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の M (メジャー) 座標。</returns>
+      <param name="geographyValue">ポイントを表す必要のない geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetMeasure(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がポイントを表す場合、その値の M (メジャー) 座標を返します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の M (メジャー) 座標。</returns>
+      <param name="geometryValue">ポイントを表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetPointCount(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値がラインストリングまたは線形リングを表す場合、その値に含まれるポイント数を返します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値内のポイント数。</returns>
+      <param name="geographyValue">geography 値。ラインストリングおよび線形リングを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetPointCount(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がラインストリングまたは線形リングを表す場合、その値に含まれるポイント数を返します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値内のポイント数。</returns>
+      <param name="geometryValue">geometry 値。ラインストリングおよび線形リングを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetPointOnSurface(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した DbGeometry 値のサーフェス上の点を表す <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を返します。この値はサーフェスを表していない場合は null になります。</summary>
+      <returns>指定された <paramref name="geometryValue" /> のサーフェス上の点を表す <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="geometryValue">geometry 値。サーフェスを表す必要はありません。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetSpatialTypeName(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の空間型名を示す値を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の空間型名。</returns>
+      <param name="geographyValue">geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetSpatialTypeName(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の空間型名を示す値を返します。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の空間型名。</returns>
+      <param name="geometryValue">geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetStartPoint(System.Data.Entity.Spatial.DbGeography)">
+      <summary>指定した DbGeography 値の始点を表す <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値を返します。この値が曲線を表していない場合は null になります。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の開始点。</returns>
+      <param name="geographyValue">曲線を表す必要のない geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetStartPoint(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した DbGeometry 値の始点を表す <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値を返します。この値が曲線を表していない場合は null になります。</summary>
+      <returns>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の開始点。</returns>
+      <param name="geometryValue">曲線を表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetXCoordinate(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がポイントを表す場合、その値の X 座標を返します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の X 座標。</returns>
+      <param name="geometryValue">ポイントを表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.GetYCoordinate(System.Data.Entity.Spatial.DbGeometry)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がポイントを表す場合、その値の Y 座標を返します。</summary>
+      <returns>指定された <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の Y 座標。</returns>
+      <param name="geometryValue">ポイントを表す必要のない geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.InteriorRingAt(System.Data.Entity.Spatial.DbGeometry,System.Int32)">
+      <summary>特定の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がポリゴンの場合、その値から内部リングを返します。</summary>
+      <returns>ポリゴンを表す場合は、<paramref name="index" /> 位置における <paramref name="geometryValue" /> の内部リング。それ以外の場合は null。</returns>
+      <param name="geometryValue">geometry 値。ポリゴンを表す必要はありません。</param>
+      <param name="index">要素を取得する、geometry 値内の位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Intersection(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の交差を計算します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> と <paramref name="otherGeography" /> の交差を表す新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="geographyValue">最初の geography 値。</param>
+      <param name="otherGeography">2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Intersection(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の交差を計算します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> と <paramref name="otherGeography" /> の交差を表す新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Intersects(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が空間的に交差するかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> が <paramref name="otherGeography" /> と交差する場合は true。それ以外の場合は false。</returns>
+      <param name="geographyValue">交差を比較する最初の geography 値。</param>
+      <param name="otherGeography">積集合のために比較する 2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Intersects(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空間的に交差するかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> が <paramref name="otherGeometry" /> と交差する場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">交差を比較する最初の geometry 値。</param>
+      <param name="otherGeometry">積集合のために比較する 2 番目の geometry 値。</param>
+    </member>
+    <member name="P:System.Data.Entity.SqlServer.SqlSpatialServices.NativeTypesAvailable">
+      <summary>直ちにエラーを発生させるのではなく、プロバイダーが必要な型やリソースを所有しているという前提で EF が続行するかどうかを示す値を取得します。既定値は true です。</summary>
+      <returns>直ちにエラーを発生させるのではなく、プロバイダーが必要な型やリソースを所有しているという前提で EF が続行する場合は true。それ以外の場合は false。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Overlaps(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空間的に重複するかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> が <paramref name="otherGeometry" /> と重複する場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.PointAt(System.Data.Entity.Spatial.DbGeography,System.Int32)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値がラインストリングまたは線形リングを表す場合、そのポイント要素を返します。</summary>
+      <returns>値がラインストリングまたは線形リングを表している場合は、位置 <paramref name="index" /> の <paramref name="geographyValue" /> 内の点。それ以外の場合は null。</returns>
+      <param name="geographyValue">geography 値。ラインストリングおよび線形リングを表す必要はありません。</param>
+      <param name="index">要素を取得する、geography 値内の位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.PointAt(System.Data.Entity.Spatial.DbGeometry,System.Int32)">
+      <summary>指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値がラインストリングまたは線形リングを表す場合、そのポイント要素を返します。</summary>
+      <returns>値がラインストリングまたは線形リングを表している場合は、位置 <paramref name="index" /> の <paramref name="geometryValue" /> 内の点。それ以外の場合は null。</returns>
+      <param name="geometryValue">geometry 値。ラインストリングおよび線形リングを表す必要はありません。</param>
+      <param name="index">要素を取得する、geometry 値内の位置。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Relate(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry,System.String)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が、指定した DE-9IM (Dimensionally Extended Nine-Intersection Model) 交差パターンに従って空間的に関連しているかどうかを判断します。</summary>
+      <returns>この <paramref name="geometryValue" /> 値が指定された交差パターン <paramref name="matrix" /> に従って <paramref name="otherGeometry" /> と関連する場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">最初の geometry 値とリレーションシップを比較する必要がある geometry 値。</param>
+      <param name="matrix">関係を定義する (DE-9IM) 交差パターンのテキスト表現を含む文字列。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.SpatialEquals(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値が空間的に等しいかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> が <paramref name="otherGeography" /> と空間的に等しい場合は true。それ以外の場合は false。</returns>
+      <param name="geographyValue">等しいかどうかを比較する最初の geography 値。</param>
+      <param name="otherGeography">等しいかどうかを比較する 2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.SpatialEquals(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空間的に等しいかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> が <paramref name="otherGeometry" /> と空間的に等しい場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">等しいかどうかを比較する最初の geometry 値。</param>
+      <param name="otherGeometry">等しいかどうかを比較する 2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.SymmetricDifference(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の対称差を計算します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> と <paramref name="otherGeography" /> の対称差を表す新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="geographyValue">最初の geography 値。</param>
+      <param name="otherGeography">2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.SymmetricDifference(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の対称差を計算します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> と <paramref name="otherGeometry" /> の対称差を表す新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Touches(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの指定した <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空間的に接触するかどうかを判断します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> が <paramref name="otherGeometry" /> に接触する場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Union(System.Data.Entity.Spatial.DbGeography,System.Data.Entity.Spatial.DbGeography)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値の和集合を計算します。</summary>
+      <returns>
+        <paramref name="geographyValue" /> と <paramref name="otherGeography" /> の和集合を表す新しい <see cref="T:System.Data.Entity.Spatial.DbGeography" /> 値。</returns>
+      <param name="geographyValue">最初の geography 値。</param>
+      <param name="otherGeography">2 番目の geography 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Union(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>2 つの <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値の和集合を計算します。</summary>
+      <returns>
+        <paramref name="geometryValue" /> と <paramref name="otherGeometry" /> の和集合を表す新しい <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geometry 値。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.SqlSpatialServices.Within(System.Data.Entity.Spatial.DbGeometry,System.Data.Entity.Spatial.DbGeometry)">
+      <summary>一方の <see cref="T:System.Data.Entity.Spatial.DbGeometry" /> 値が空間的に他方の値内にあるかどうかを判断します。</summary>
+      <returns>geometryValue が otherGeometry 内にある場合は true。それ以外の場合は false。</returns>
+      <param name="geometryValue">最初の geometry 値。</param>
+      <param name="otherGeometry">2 番目の geometry 値。</param>
+    </member>
+    <member name="T:System.Data.Entity.SqlServer.Utilities.TaskExtensions">
+      <summary>
+        <see cref="T:System.Threading.Tasks.Task" /> クラスの拡張メソッドが含まれています。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.WithCurrentCulture(System.Threading.Tasks.Task)">
+      <summary>この <see cref="T:System.Threading.Tasks.Task" /> が継続を元のコンテキストにマーシャリングしないようにするよう待機するために使用する待機機能を構成します。ただし、現在のカルチャと UI カルチャは保持します。</summary>
+      <returns>このタスクを待機するために使用するオブジェクト。</returns>
+      <param name="task">待機するタスク。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.WithCurrentCulture``1(System.Threading.Tasks.Task{``0})">
+      <summary>この <see cref="T:System.Threading.Tasks.Task`1" /> が継続を元のコンテキストにマーシャリングしないようにするよう待機するために使用する待機機能を構成します。ただし、現在のカルチャと UI カルチャは保持します。</summary>
+      <returns>このタスクを待機するために使用するオブジェクト。</returns>
+      <param name="task">待機するタスク。</param>
+      <typeparam name="T">関連する <see cref="T:System.Threading.Tasks.Task`1" /> によって生成される結果の型。</typeparam>
+    </member>
+    <member name="T:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter">
+      <summary>カルチャを保持する <see cref="T:System.Threading.Tasks.Task" /> の待機を許可する待機可能オブジェクトが備えられています。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter.#ctor(System.Threading.Tasks.Task)">
+      <summary>
+        <see cref="T:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter" /> クラスの新しいインスタンスを構築します。</summary>
+      <param name="task">待機するタスク。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter.GetAwaiter">
+      <summary>
+        <see cref="T:System.Threading.Tasks.Task" /> を待機するために使用する待機機能を取得します。</summary>
+      <returns>待機機能のインスタンス。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter.GetResult">
+      <summary>完了した <see cref="T:System.Threading.Tasks.Task" /> の待機を終了します。</summary>
+      <exception cref="T:System.NullReferenceException">待機機能が正しく初期化されませんでした。</exception>
+      <exception cref="T:System.Threading.Tasks.TaskCanceledException">タスクがキャンセルされました。</exception>
+      <exception cref="T:System.Exception">タスクがエラーの状態で完了しました。</exception>
+    </member>
+    <member name="P:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter.IsCompleted">
+      <summary>この <see cref="T:System.Threading.Tasks.Task" /> が完了したかどうかを取得します。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter.OnCompleted(System.Action)">
+      <summary>このメソッドは実装されていないため、呼び出さないでください。</summary>
+      <param name="continuation">待機操作が完了するときに呼び出すアクション。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter.UnsafeOnCompleted(System.Action)">
+      <summary>この <see cref="T:System.Runtime.CompilerServices.TaskAwaiter" /> と関連付けられた <see cref="T:System.Threading.Tasks.Task" /> の継続をスケジュールします。</summary>
+      <param name="continuation">待機操作が完了するときに呼び出すアクション。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="continuation" /> の引数が null (Visual Basic の場合は Nothing) です。</exception>
+      <exception cref="T:System.InvalidOperationException">待機機能が正しく初期化されませんでした。</exception>
+    </member>
+    <member name="T:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter`1">
+      <summary>カルチャを保持する <see cref="T:System.Threading.Tasks.Task`1" /> の待機を許可する待機可能オブジェクトが備えられています。</summary>
+      <typeparam name="T">関連する <see cref="T:System.Threading.Tasks.Task`1" /> によって生成される結果の型。</typeparam>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter`1.#ctor(System.Threading.Tasks.Task{`0})">
+      <summary>
+        <see cref="T:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter`1" /> クラスの新しいインスタンスを構築します。</summary>
+      <param name="task">待機するタスク。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter`1.GetAwaiter">
+      <summary>
+        <see cref="T:System.Threading.Tasks.Task`1" /> を待機するために使用する待機機能を取得します。</summary>
+      <returns>待機機能のインスタンス。</returns>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter`1.GetResult">
+      <summary>完了した <see cref="T:System.Threading.Tasks.Task`1" /> の待機を終了します。</summary>
+      <returns>完了した <see cref="T:System.Threading.Tasks.Task`1" /> の結果。</returns>
+      <exception cref="T:System.NullReferenceException">待機機能が正しく初期化されませんでした。</exception>
+      <exception cref="T:System.Threading.Tasks.TaskCanceledException">タスクがキャンセルされました。</exception>
+      <exception cref="T:System.Exception">タスクがエラーの状態で完了しました。</exception>
+    </member>
+    <member name="P:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter`1.IsCompleted">
+      <summary>この <see cref="T:System.Threading.Tasks.Task" /> が完了したかどうかを取得します。</summary>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter`1.OnCompleted(System.Action)">
+      <summary>このメソッドは実装されていないため、呼び出さないでください。</summary>
+      <param name="continuation">待機操作が完了するときに呼び出すアクション。</param>
+    </member>
+    <member name="M:System.Data.Entity.SqlServer.Utilities.TaskExtensions.CultureAwaiter`1.UnsafeOnCompleted(System.Action)">
+      <summary>この <see cref="T:System.Runtime.CompilerServices.TaskAwaiter`1" /> と関連付けられた <see cref="T:System.Threading.Tasks.Task`1" /> の継続をスケジュールします。</summary>
+      <param name="continuation">待機操作が完了するときに呼び出すアクション。</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="continuation" /> の引数が null (Visual Basic の場合は Nothing) です。</exception>
+      <exception cref="T:System.InvalidOperationException">待機機能が正しく初期化されませんでした。</exception>
+    </member>
+  </members>
+</doc>
