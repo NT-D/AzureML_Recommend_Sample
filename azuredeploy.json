@@ -89,11 +89,11 @@
             "appSettings": [
               {
                 "name": "apiUrl",
-                "value": "[parameters('apiUrl')"
+                "value": "[parameters('apiUrl')]"
               },
               {
                 "name": "apiKey",
-                "value": "[parameters('apiKey')"
+                "value": "[parameters('apiKey')]"
               }
             ]
           }
