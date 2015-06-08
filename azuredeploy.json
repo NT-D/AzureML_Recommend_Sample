@@ -10,7 +10,15 @@
     },
     "siteLocation": {
       "type": "string",
-      "defaultValue":"East US"
+      "defaultValue":"Japan West"
+    },
+    "apiUrl": {
+      "type": "string",
+      "defaultValue": "Input your url"
+    },
+    "apiKey": {
+      "type": "string",
+      "defaultValue": "Input your key"
     },
     "sku": {
       "type": "string",
