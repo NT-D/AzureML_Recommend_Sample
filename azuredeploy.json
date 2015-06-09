@@ -69,7 +69,7 @@
       ],
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarmId": "[parameters('hostingPlanName')]"
+        "serverFarm": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
