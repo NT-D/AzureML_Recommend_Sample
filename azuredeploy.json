@@ -60,13 +60,10 @@
       }
     },
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2014-11-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/sites",
       "location": "[parameters('siteLocation')]",
-      "tags": {
-        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource"
-      },
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
@@ -76,27 +73,20 @@
       },
       "resources": [
         {
-          "apiVersion": "2014-04-01",
+          "apiVersion": "2014-11-01",
+          "name": "appsettings",
           "type": "config",
-          "name": "web",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('siteName'))]"
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
           ],
           "properties": {
-            "appSettings": [
-              {
-                "name": "apiUrl",
-                "value": "[parameters('apiUrl')]"
-              },
-              {
-                "name": "apiKey",
-                "value": "[parameters('apiKey')]"
-              }
-            ]
+            "apiUrl": "Some value",
+            "apiKey": "[parameters('apiKey')]",
+            "AppSettingKey3": "My third setting"
           }
         },
         {
-          "apiVersion": "2014-04-01",
+          "apiVersion": "2014-11-01",
           "name": "web",
           "type": "sourcecontrols",
           "dependsOn": [
