@@ -13,12 +13,10 @@
       "defaultValue":"Japan West"
     },
     "apiUrl": {
-      "type": "string",
-      "defaultValue": "Input your url"
+      "type": "string"
     },
     "apiKey": {
-      "type": "string",
-      "defaultValue": "Input your key"
+      "type": "string"
     },
     "sku": {
       "type": "string",
@@ -80,9 +78,9 @@
             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
           ],
           "properties": {
-            "apiUrl": "Some value",
+            "WEBSITE_NODE_DEFAULT_VERSION": "0.10.32",
+            "apiUrl": "[parameters('apiUrl')]",
             "apiKey": "[parameters('apiKey')]",
-            "AppSettingKey3": "My third setting"
           }
         },
         {
