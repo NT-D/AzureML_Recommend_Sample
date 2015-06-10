@@ -46,7 +46,7 @@
   },
   "resources": [
     {
-      "apiVersion": "2015-06-01",
+      "apiVersion": "2014-11-01",
       "name": "[parameters('hostingPlanName')]",
       "type": "Microsoft.Web/serverfarms",
       "location": "[parameters('siteLocation')]",
@@ -58,7 +58,7 @@
       }
     },
     {
-      "apiVersion": "2015-06-01",
+      "apiVersion": "2014-11-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/sites",
       "location": "[parameters('siteLocation')]",
@@ -67,24 +67,31 @@
       ],
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarmId": "[parameters('hostingPlanName')]"
+        "serverFarm": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
-          "apiVersion": "2015-06-01",
-          "name": "appsettings",
+          "apiVersion": "2014-04-01",
           "type": "config",
+          "name": "web",
           "dependsOn": [
-            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+            "[concat('Microsoft.Web/Sites/', parameters('siteName'))]"
           ],
           "properties": {
-            "WEBSITE_NODE_DEFAULT_VERSION": "0.10.32",
-            "apiUrl": "[parameters('apiUrl')]",
-            "apiKey": "[parameters('apiKey')]"
+            "appSettings": [
+              {
+                "name": "apiUrl",
+                "value": "[parameters('apiUrl')]"
+              },
+              {
+                "name": "apiKey",
+                "value": "[parameters('apiKey')]"
+              }
+            ]
           }
         },
         {
-          "apiVersion": "2015-06-01",
+          "apiVersion": "2014-11-01",
           "name": "web",
           "type": "sourcecontrols",
           "dependsOn": [
